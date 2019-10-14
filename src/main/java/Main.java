@@ -1,4 +1,4 @@
 public class Main {
 
-    int variable = 69;
+    double variable = 69.0;
 }
