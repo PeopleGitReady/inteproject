@@ -1,4 +1,7 @@
 public class Main {
 
-    double variable = 68,0;
+    public static void main(String args[]) {
+
+        double variable = 68.0;
+    }
 }
