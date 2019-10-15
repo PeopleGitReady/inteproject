@@ -15,7 +15,7 @@ class CharacterTest {
     void TestNameEmpty(){
         //nameEmpty method should have a boolean return type
         Character testCh = new Character("     ",44,66);
-        assertFalse(testCh.nameEmpty());
+        assertFalse(testCh.getName().isEmpty());
     }
 
     @Test
