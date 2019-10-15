@@ -5,9 +5,9 @@ public abstract class Character {
     private int attack;
     private int level;
 
-    public Character(String name, int health, int attack, int level;) {
+    public Character(String name, int health, int attack, int level) {
         this.name = name;
-        this.health = maxHealth;
+        this.health = 100;
         this.attack=22;
         this.level = level;
     }
