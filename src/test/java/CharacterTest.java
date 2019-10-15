@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CharacterTest {
 
-    }
     @Test
     void TestNameNull(){
         Character testCh = new Character(null,44,66);
@@ -23,15 +22,6 @@ class CharacterTest {
     void TestNameString(){
         Character testCh = new Character("SavageB",44,66);
         assertEquals("SavageB",testCh.getName());
-    }
-
-
-    @Test
-    void TestHealthNumberRangeNull(){
-        //healthRangeCorrect should return a boolean.
-        int x = Integer.parseInt(null);
-        Character testCh = new Character("SavageB",44,x);
-        assertFalse(testCh.healthRangeCorrect(testCh.getHealth));
     }
 
     @Test
