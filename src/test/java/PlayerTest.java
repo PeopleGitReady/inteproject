@@ -5,12 +5,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class PlayerTest {
 
 
-
     @Test
     void testNameNumber() {
         //getNumber should control the
         Player testCh = new Player("22.3", 20, 30, 50, 100, 44);
-        assertFalse(testCh.ifItIsNumber());
+        assertFalse(testCh.getName().matches());
     }
 
     @Test
@@ -19,7 +18,6 @@ class PlayerTest {
         assertNotNull(testCh.getName());
     }
 
-    // Ändra till isEmpty
     @Test
     void testNameEmpty(){
         //nameEmpty method should have a boolean return type
@@ -29,7 +27,7 @@ class PlayerTest {
 
     @Test
     void testNameString(){
-        Player testCh = new Player("SavageB",44,66, 100, 100,);
+        Player testCh = new Player("SavageB",44,66, 100, 100, 50);
         assertEquals("SavageB",testCh.getName());
     }
 
@@ -39,13 +37,13 @@ class PlayerTest {
         //healthRangeCorrect should return a boolean.
         int x = Integer.parseInt(null);
         Player testCh = new Player("SavageB",44, x, 100, 100, 50);
-        assertFalse(testCh.healthRangeCorrect(testCh.getHealth));
+        assertFalse(testCh.healthRangeCorrect(testCh.getHealth());
     }
 
     @Test
     void testHealthNumberRangeNegative(){
         Player testCh = new Player("SavageB",44,-99, 11, 100, 110);
-        assertTrue(testCh.healthRangeCorrect(testCh.getHealth));
+        assertTrue(testCh.healthRangeCorrect(testCh.getHealth());
     }
     @Test
     void testHealthNumberRangeAboveRange(){
@@ -54,7 +52,7 @@ class PlayerTest {
 
 
     @Test
-    void pickUpItemWhenInventoryFull () {
+    void pickUpItemWhenInventoryFull(){
 
     }
 
