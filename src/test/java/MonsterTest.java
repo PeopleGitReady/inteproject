@@ -4,6 +4,6 @@ class MonsterTest {
 
     // Test klass för Monster liv
 
-    // Test klass för Monster damage
+    // Test klass för Monster attack
 
 }
