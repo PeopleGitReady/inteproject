@@ -9,7 +9,7 @@ class PlayerTest {
     @Test
     void TestNameNumber(){
         //getNumber should control the
-        Player testCh = new Player();
+        Player testCh = new Player("22.3", 20, 30, 50 );
         assertFalse(testCh.ifItIsNumber());
 
     @Test

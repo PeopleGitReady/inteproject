@@ -16,18 +16,24 @@ public abstract class Character {
 
     }
 
-    //getAttack()
 
-    //getName()
+    public int getAttack(){
+        return attack;
+    }
+
+    public int getHealth(){
+        return health;
+    }
     //setName
 
     //getHealth
 
     //getXplevel
+    public int getLevel(){
+        return level;
+    }
     //calculate Xplevel()
 
-    //getSpeed
-    //calculateSpeed()
 
 
     //healthIsCorrect(int)
