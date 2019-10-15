@@ -6,10 +6,9 @@ class PlayerTest {
 
 
     @Test
-    void testNameNumber() {
-        //getNumber should control the
+    void testIfNameContainsNumber() {
         Player testCh = new Player("22.3", 20, 30, 50, 100, 44);
-        assertFalse(testCh.getName().matches());
+        assertTrue(testCh.getName().matches(".*\\d.*"));
     }
 
     @Test

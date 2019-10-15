@@ -9,7 +9,7 @@ class MonsterTest {
 
     // Test klass för drops av item
     @Test
-    void checkIfItemdropIsNul() {
+    void checkIfItemdropIsNull() {
     }
 
     @Test
