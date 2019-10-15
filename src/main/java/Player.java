@@ -7,9 +7,11 @@ public class Player extends Character {
     private String name;
     private ArrayList<Item> inventory = new ArrayList<Item>();
 
-    public Player(String name, int level, int attack, int health){
-        super(health, attack, level);
-        this.name = name;
+    public Player(String name){
+        super(name);
+        super.setAttack(22);
+        super.setHealth(100);
+        super.setLevel(1);
     }
 
     public String getName(){
