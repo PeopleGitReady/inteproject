@@ -1,10 +1,13 @@
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CharacterTest {
+class PlayerTest {
+
+
 
     @Test
-    void characterIsDeadWhenHealthIsZero () {
+    void pickUpItemWhenInventoryFull () {
 
     }
 
