@@ -6,7 +6,7 @@ public abstract class Character {
     private int maxHealth;
     private int attack;
 
-    public Character(String name, int xpLevel, int health) {
+    public Character(String name, int xpLevel, int health, int maxHealth, int attack) {
         this.name = name;
         this.xpLevel = xpLevel;
         this.maxHealth = 100;
