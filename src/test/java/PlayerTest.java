@@ -19,11 +19,12 @@ class PlayerTest {
         assertNotNull(testCh.getName());
     }
 
+    // Ändra till isEmpty
     @Test
     void testNameEmpty(){
         //nameEmpty method should have a boolean return type
         Player testCh = new Player("     ",44,66, 100, 100, 59);
-        assertFalse(testCh.nameEmpty());
+        assertFalse(testCh.getName().isEmpty());
     }
 
     @Test

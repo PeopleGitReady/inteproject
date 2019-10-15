@@ -1,12 +1,10 @@
 public abstract class Character {
 
-    private String name;
     private int health;
     private int attack;
     private int level;
 
-    public Character(String name, int health, int attack, int level) {
-        this.name = name;
+    public Character(int health, int attack, int level) {
         this.health = 100;
         this.attack=22;
         this.level = level;

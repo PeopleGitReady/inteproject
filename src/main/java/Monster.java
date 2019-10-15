@@ -1,7 +1,10 @@
 public class Monster extends Character {
 
-    public Monster(String name, int health, int attack, int level) {
-        super(name, health, attack, level);
+    private String type;
+
+    public Monster(String type, int health, int attack, int level) {
+        super(health, attack, level);
+        this.type = type;
     }
 
 
