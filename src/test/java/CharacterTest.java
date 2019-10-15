@@ -8,7 +8,7 @@ class CharacterTest {
     void TestNameNumber(){
         //getNumber should control the
         Character testCh = new Character("22.3",44,66);
-        assertFalse(testCh.getNumber());
+        assertFalse(testCh.ifItIsNumber());
 
     }
     @Test
@@ -28,16 +28,27 @@ class CharacterTest {
     @Test
     void TestNameString(){
         Character testCh = new Character("SavageB",44,66);
-
         assertEquals("SavageB",testCh.getName());
     }
 
 
     @Test
-    void TestHealth(){
+    void TestHealthNumberRangeNull(){
+        //healthRangeCorrect should return a boolean.
+        int x = Integer.parseInt(null);
+        Character testCh = new Character("SavageB",44,x);
+        assertFalse(testCh.healthRangeCorrect(testCh.getHealth));
+    }
 
-
-
+    @Test
+    void TestHealthNumberRangeNegative(){
+        Character testCh = new Character("SavageB",44,-99);
+        assertTrue(testCh.healthRangeCorrect(testCh.getHealth));
+    }
+    @Test
+    void TestHealthNumberRangeAboveRange(){
+        Character testCh = new Character("SavageB",44,1000);
+        assertTrue(testCh.healthRangeCorrect(testCh.getHealth));
     }
 
     @Test
