@@ -10,4 +10,8 @@ public class Player extends Character {
         this.maxHealth = 100;
         this.name = name;
     }
+
+    public String getName(){
+        return name;
+    }
 }
