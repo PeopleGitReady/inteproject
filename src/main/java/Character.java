@@ -3,15 +3,16 @@ public abstract class Character {
     private String name;
     private int xpLevel;
     private int health;
+    private int maxHealth;
     private int attack;
 
-    public Character(String name, int xpLevel, int health) {
+    public Character(String name, int xpLevel, int health, int maxHealth, int attack) {
         this.name = name;
         this.xpLevel = xpLevel;
-        this.health = 100;
+        this.maxHealth = 100;
+        this.health = maxHealth;
         this.attack=22;
     }
-
 
     public void movement(){
 
