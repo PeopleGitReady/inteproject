@@ -24,11 +24,7 @@ public abstract class Character {
     public int getHealth(){
         return health;
     }
-    //setName
 
-    //getHealth
-
-    //getXplevel
     public int getLevel(){
         return level;
     }

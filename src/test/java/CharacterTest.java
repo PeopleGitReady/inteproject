@@ -4,12 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CharacterTest {
 
-    @Test
-    void TestNameNumber(){
-        //getNumber should control the
-        Character testCh = new Character("22.3",44,66);
-        assertFalse(testCh.ifItIsNumber());
-
     }
     @Test
     void TestNameNull(){
