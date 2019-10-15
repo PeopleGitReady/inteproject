@@ -1,19 +1,25 @@
 public class Character {
 
-    String name;
-    int XpLevel;
-    int health;
+    private String name;
+    private int xpLevel;
+    private int health;
+    private int attack;
 
-    public Character(String name, int xpLevel, int health) {
+    public Character(String name, int xpLevel, int health, int attack) {
         this.name = name;
-        XpLevel = xpLevel;
+        this.xpLevel = xpLevel;
         this.health = health;
+        this.attack=attack;
     }
 
 
     public void movement(){
 
     }
+
+
+
+
 
 
 
