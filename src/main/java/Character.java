@@ -22,13 +22,22 @@ public abstract class Character {
     public int getAttack(){
         return attack;
     }
+    public void setAttack(int attack){
+        this.attack = attack;
+    }
 
     public int getHealth(){
         return health;
     }
+    public void setHealth(int health){
+        this.health = health;
+    }
 
     public int getLevel(){
         return level;
+    }
+    public void setLevel(int level){
+        this.level = level;
     }
     //calculate Xplevel()
 
