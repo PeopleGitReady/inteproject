@@ -9,8 +9,11 @@ public abstract class Character {
     private boolean isDead;
 
 
-    public Character(String name) {
+    public Character(String name, int health, int attack, int level) {
         this.name = name;
+        this.health = health;
+        this.attack = attack;
+        this.level = level;
     }
 
     public void movement(){
