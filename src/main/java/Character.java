@@ -3,6 +3,10 @@ public abstract class Character {
     private int health;
     private int attack;
     private int level;
+    private int positionX;
+    private int positionY;
+    private boolean isDead;
+
 
     public Character(int health, int attack, int level) {
         this.health = 100;

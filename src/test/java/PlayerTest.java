@@ -21,7 +21,7 @@ class PlayerTest {
     void testNameEmpty(){
         //nameEmpty method should have a boolean return type
         Player testCh = new Player("     ",44,66, 100, 100, 59);
-        assertFalse(testCh.getName().isEmpty());
+        assertFalse(testCh.getName().trim().isEmpty());
     }
 
     @Test
@@ -51,7 +51,7 @@ class PlayerTest {
 
 
     @Test
-    void pickUpItemWhenInventoryFull(){
+    void pickUpItemWhenInventoryFull() {
 
     }
 
