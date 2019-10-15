@@ -5,7 +5,7 @@ public class Player extends Character {
 
     public Player(String name, int level, int health, int attack, int maxHealth, int xp){
         super(name, health, attack, level);
-        this.maxHealth = maxHealth;
         this.xp = xp;
+        this.maxHealth = 100;
     }
 }
