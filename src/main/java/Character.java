@@ -48,6 +48,9 @@ public abstract class Character {
     public Point getPoint(){
         return point;
     }
+    public void setPoint(Point point){
+        this.point = point;
+    }
 
     public boolean getIsDead() {
         return isDead;
