@@ -43,11 +43,24 @@ public abstract class Character {
     public void setLevel(int level){
         this.level = level;
     }
+
+    public boolean getIsDead() {
+        return isDead;
+    }
+
+    public boolean setIsDead(boolean isDead) {
+        isDead = true;
+    }
+
     //calculate Xplevel()
 
 
 
     //healthIsCorrect(int)
+
+        //calculate health
+
+
 
 
 

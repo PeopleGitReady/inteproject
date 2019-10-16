@@ -38,24 +38,47 @@ class PlayerTest {
         //healthRangeCorrect should return a boolean.
         int x = Integer.parseInt(null);
         Player testCh = new Player("SavageB");
-        assertFalse(testCh.healthRangeCorrect(testCh.getHealth()));
+        //assertFalse(testCh.healthRangeCorrect(testCh.getHealth()));
     }
 
     @Test
     void testHealthNumberRangeNegative(){
         Player testCh = new Player("SavageB");
-        assertTrue(testCh.healthRangeCorrect(testCh.getHealth()));
+        //assertTrue(testCh.healthRangeCorrect(testCh.getHealth()));
     }
     @Test
     void testHealthNumberRangeAboveRange(){
         Player testCh = new Player("SavageB");
-        assertTrue(testCh.healthRangeCorrect(testCh.getHealth()));
+        //assertTrue(testCh.healthRangeCorrect(testCh.getHealth()));
+
+    }
+
+    @Test
+    void testHealthAfterAttack(){
+
+        //metoden kommer ändra
+        //we assume that monster does 25 dmg per attack
+        monster.attack(testPlayer);
+        monster.attack(testPlayer);
+        monster.attack(testPlayer);
+        monster.attack(testPlayer);
+        monster.attack(testPlayer);
+
+        Player.calculateHealth(monster.getDmg());
+        assertEquals(0,);
+    }
+
+
+    @Test
+    void checkIfPlayerHealthBelowZero() {
 
     }
 
     @Test
     void fullInventorySizeStaysSameOnFullLoot() {
         // Inventory size should remain unchanged if player tries to pick up an item when inventory is full.
+        //pickUpLoot boolean?
+        //will the pickUpLoot only have a weapon dataType, could it be other Items such as potions?
         Weapon weapon = new Weapon();
         testPlayer.pickUpLoot(weapon);
         assertTrue(testPlayer.getInventory.size(), 9);
