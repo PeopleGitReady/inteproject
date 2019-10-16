@@ -14,7 +14,6 @@ class MonsterTest {
     }
 
 
-
     @Test
     void healthDecreasesAfterAttack(){
 
