@@ -19,14 +19,6 @@ class    MonsterTest {
 
 
 
-    @Test
-    void TestHealthNumberRangeNull(){
-        //healthRangeCorrect should return a boolean.
-        int x = Integer.parseInt(null);
-        Character testCh = new Character("SavageB",44,x);
-        assertFalse(testCh.healthRangeCorrect(testCh.getHealth));
-    }
-
     // Test klass för Monster attack
 
     // Monster Typ
