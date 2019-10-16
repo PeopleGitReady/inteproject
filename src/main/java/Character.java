@@ -57,6 +57,10 @@ public abstract class Character {
     public void setIsDead(boolean isDead) {
         this.isDead = isDead;
     }
+
+    public int setHealth(int health) {
+        return health;
+    }
         //calculate health
 
     //attack monster to Payer
