@@ -14,4 +14,12 @@ public class Player extends Character {
     public String getName(){
         return name;
     }
+
+    public void pickUpLoot(Item item) {
+        if(inventory.size() < 9) {
+            inventory.add(item);
+        } else {
+            System.out.print("This inventory is full!");
+        }
+    }
 }
