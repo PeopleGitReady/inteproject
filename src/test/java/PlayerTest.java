@@ -15,15 +15,15 @@ class PlayerTest {
 
     @Test
     void testNameNull(){
-        Player testCh = new Player(null);
-        assertNotNull(testCh.getName());
+        assertThrows(NullPointerException.class, () -> {
+            Player testCh = new Player(null);
+        });
     }
 
     @Test
     void testNameEmpty(){
-        //nameEmpty method should have a boolean return type
         Player testCh = new Player("     ");
-        assertFalse(testCh.getName().trim().isEmpty());
+        assertTrue(testCh.getName().trim().isEmpty());
     }
 
     @Test
@@ -33,19 +33,7 @@ class PlayerTest {
     }
 
 
-    @Test
-    void testHealthNumberRangeNull(){
-        //healthRangeCorrect should return a boolean.
-        int x = Integer.parseInt(null);
-        Player testCh = new Player("SavageB");
-        //assertFalse(testCh.healthRangeCorrect(testCh.getHealth()));
-    }
 
-    @Test
-    void testHealthNumberRangeNegative(){
-        Player testCh = new Player("SavageB");
-        //assertTrue(testCh.healthRangeCorrect(testCh.getHealth()));
-    }
     @Test
     void testHealthNumberRangeAboveRange(){
         Player testCh = new Player("SavageB");
