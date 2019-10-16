@@ -58,6 +58,10 @@ public abstract class Character {
 
     //healthIsCorrect(int)
 
+        //calculate health
+
+
+
 
 
 
