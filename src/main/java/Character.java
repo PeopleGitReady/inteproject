@@ -61,7 +61,7 @@ public abstract class Character {
         this.isDead = isDead;
     }
 
-        //calculate health
+    //calculate health
 
     //attack monster to Payer
     public void attack(Character c){

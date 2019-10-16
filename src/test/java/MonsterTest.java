@@ -4,8 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MonsterTest {
 
-    Monster bawser = new Monster("Bawser", 100, 20, 3);
-    Player mario = new Player("Mario");
 
 
     // Test klass för Monster liv
@@ -18,17 +16,13 @@ class MonsterTest {
 
 
     @Test
-    void testHealthAfterAttack(){
+    void healthDecreasesAfterAttack(){
 
-        //we assume that monster does 25 dmg per attack
-        monster.attack(testPlayer);
-        monster.attack(testPlayer);
-        monster.attack(testPlayer);
-        monster.attack(testPlayer);
-        monster.attack(testPlayer);
-
-        Player.calculateHealth(monster.getDmg());
-        assertEquals(0,);
+        Monster bawser = new Monster("Bawser", 100, 20, 3);
+        Player mario = new Player("Mario");
+        assertEquals(100, mario.getHealth());
+        bawser.attack(mario);
+        assertEquals(80, mario.getHealth());
     }
 
     // Test klass för Monster attack

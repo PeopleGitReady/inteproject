@@ -80,7 +80,7 @@ class PlayerTest {
         //will the pickUpLoot only have a weapon dataType, could it be other Items such as potions?
         Weapon weapon = new Weapon();
         testPlayer.pickUpLoot(weapon);
-        assertTrue(testPlayer.getInventory.size(), 9);
+        assertEquals(9, testPlayer.getInventory().size());
     }
 
     @Test
@@ -88,7 +88,7 @@ class PlayerTest {
         // Player attempts to pick up a new item with an already full inventory, inventory should not contain this item.
         Weapon weapon = new Weapon();
         testPlayer.pickUpLoot(weapon);
-        assertFalse(testPlayer.getInventory.contains(weapon));
+        assertFalse(testPlayer.getInventory().contains(weapon));
     }
 
 
