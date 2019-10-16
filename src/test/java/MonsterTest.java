@@ -16,7 +16,6 @@ class MonsterTest {
 
     @Test
     void healthDecreasesAfterAttack(){
-
         Monster bawser = new Monster("Bawser", 100, 20, 3);
         Player mario = new Player("Mario");
         assertEquals(100, mario.getHealth());
