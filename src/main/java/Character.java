@@ -1,11 +1,12 @@
+import java.awt.*;
+
 public abstract class Character {
 
     private String name;
     private int health;
     private int attack;
     private int level;
-    private int positionX;
-    private int positionY;
+    Point point;
     private boolean isDead;
 
 
