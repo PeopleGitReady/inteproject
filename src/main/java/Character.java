@@ -56,7 +56,7 @@ public abstract class Character {
         return isDead;
     }
 
-    public boolean setIsDead(boolean isDead) {
+    public void setIsDead(boolean isDead) {
         this.isDead = isDead;
     }
 
