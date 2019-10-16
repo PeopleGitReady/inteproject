@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class Monster extends Character {
 
     //Monster bawser = new Monster("Bawser", 100, 10, 10);
@@ -10,13 +12,17 @@ public class Monster extends Character {
 
     // Metod som kollar om Monster är död så droppa item på dess plats
 
-    public void TakeDamage (int attack) {
+    public void takeDamage (int attack) {
        int newHealth = getHealth() - attack;
        setHealth(newHealth);
         if (getHealth() <= 0) {
             setIsDead(true);
             generateDrop(getPoint());
         }
-        }
     }
 
+    public void generateDrop(Point point) {
+        Item item = new Item(point);
+    }
+
+}

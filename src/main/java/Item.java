@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public abstract class Item {
+public class Item {
     private int requiredLevel;
     private int rarity;
     private String name;
