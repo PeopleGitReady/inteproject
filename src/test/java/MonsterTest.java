@@ -10,7 +10,14 @@ class MonsterTest {
     // Test klass för drops av item
     @Test
     void checkIfItemdropIsNull() {
+        Item item = new Item();
+        testMonster.dropItem(item);
+        // Ska Monstern ha en pre Inventory som den droppar ifrån eller är det randomized?
+        assertTrue(testMonster.drop());
+
     }
+
+
 
     @Test
     void TestHealthNumberRangeNull(){
