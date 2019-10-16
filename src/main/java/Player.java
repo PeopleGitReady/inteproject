@@ -22,4 +22,8 @@ public class Player extends Character {
             System.out.print("This inventory is full!");
         }
     }
+
+    public ArrayList<Item> getInventory() {
+        return inventory;
+    }
 }
