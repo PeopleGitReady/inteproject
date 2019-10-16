@@ -57,7 +57,7 @@ public abstract class Character {
     }
 
     public boolean setIsDead(boolean isDead) {
-        isDead = true;
+        this.isDead = isDead;
     }
 
     //calculate Xplevel()
