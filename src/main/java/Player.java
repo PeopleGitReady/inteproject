@@ -10,15 +10,12 @@ public class Player extends Character {
         super(name, 22, 100, 1);
     }
 
-    public String getName(){
-        return name;
-    }
 
     public void pickUpLoot(Item item) {
         if(inventory.size() < 9) {
             inventory.add(item);
         } else {
-            System.out.print("This inventory is full!");
+            System.out.println("This inventory is full!");
         }
     }
 
