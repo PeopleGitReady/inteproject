@@ -8,5 +8,6 @@ public class Item {
 
     public Item(Point point) {
         this.point = point;
+
     }
 }
