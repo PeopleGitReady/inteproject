@@ -1,11 +1,12 @@
+import java.awt.*;
+
 public abstract class Character {
 
     private String name;
     private int health;
     private int attack;
     private int level;
-    private int positionX;
-    private int positionY;
+    Point point;
     private boolean isDead;
 
 
@@ -44,12 +45,19 @@ public abstract class Character {
         this.level = level;
     }
 
+    public Point getPoint(){
+        return point;
+    }
+    public void setPoint(Point point){
+        this.point = point;
+    }
+
     public boolean getIsDead() {
         return isDead;
     }
 
     public boolean setIsDead(boolean isDead) {
-        isDead = true;
+        this.isDead = isDead;
     }
 
     //calculate Xplevel()
