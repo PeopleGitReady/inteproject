@@ -6,7 +6,7 @@ public abstract class Character {
     private int health;
     private int attack;
     private int level;
-    Point point;
+    private Point point;
     private boolean isDead;
 
 
