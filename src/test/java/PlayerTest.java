@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
 
+    Player testPlayer = new Player("Mike");
+
 
     @Test
     void testIfNameContainsNumber() {
@@ -49,9 +51,23 @@ class PlayerTest {
         Player testCh = new Player("SavageB");
         assertTrue(testCh.healthRangeCorrect(testCh.getHealth()));
 
-    @Test
-    void pickUpItemWhenInventoryFull() {
-
     }
+
+    @Test
+    void fullInventorySizeStaysSameOnFullLoot() {
+        // Inventory size should remain unchanged if player tries to pick up an item when inventory is full.
+        Weapon weapon = new Weapon();
+        testPlayer.pickUpLoot(weapon);
+        assertTrue(testPlayer.getInventory.size(), 9);
+    }
+
+    @Test
+    void fullInventoryDoesNotContainNewLoot() {
+        // Player attempts to pick up a new item with an already full inventory, inventory should not contain this item.
+        Weapon weapon = new Weapon();
+        testPlayer.pickUpLoot(weapon);
+        assertFalse(testPlayer.getInventory.contains(weapon));
+    }
+
 
 }
