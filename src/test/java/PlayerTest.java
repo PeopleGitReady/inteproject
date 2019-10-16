@@ -32,9 +32,6 @@ class PlayerTest {
         assertEquals("SavageB",testCh.getName());
     }
 
-
-
-
     @Test
     void healthDecreasesAfterAttack(){
         Monster bawser = new Monster("Bawser", 100, 20, 3);
@@ -44,11 +41,10 @@ class PlayerTest {
         assertEquals(80, mario.getHealth());
     }
 
-
-
-
     @Test
-    void fullInventorySizeStaysSameOnFullLoot() {
+    void fullInventorySizeStaysSameOnLoot() {
+        // Player tries to pick up a new item with an already full inventory, size of inventory should stay unchanged.
+        // need to add a full inventory to testPlayer for test to be valid
         Weapon weapon = new Weapon();
         testPlayer.pickUpLoot(weapon);
         assertEquals(9, testPlayer.getInventory().size());
@@ -56,7 +52,8 @@ class PlayerTest {
 
     @Test
     void fullInventoryDoesNotContainNewLoot() {
-        // Player attempts to pick up a new item with an already full inventory, inventory should not contain this item.
+        // Player tries to pick up a new item with an already full inventory, inventory should not contain this item.
+        // need to add a full inventory to testPlayer for test to be valid
         Weapon weapon = new Weapon();
         testPlayer.pickUpLoot(weapon);
         assertFalse(testPlayer.getInventory().contains(weapon));
