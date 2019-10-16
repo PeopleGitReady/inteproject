@@ -45,6 +45,10 @@ public abstract class Character {
         this.level = level;
     }
 
+    public Point getPoint(){
+        return point;
+    }
+
     public boolean getIsDead() {
         return isDead;
     }
