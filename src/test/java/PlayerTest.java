@@ -45,10 +45,7 @@ class PlayerTest {
     }
 
 
-    @Test
-    void checkIfPlayerHealthBelowZero() {
 
-    }
 
     @Test
     void fullInventorySizeStaysSameOnFullLoot() {
