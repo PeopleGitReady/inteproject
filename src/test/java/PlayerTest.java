@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PlayerTest {
 
     Player testPlayer = new Player("Mike");
-
+    Monster testMonster = new Monster("Luigi",100, 25, 10);
 
     @Test
     void testIfNameContainsNumber() {
@@ -58,13 +58,12 @@ class PlayerTest {
 
         //metoden kommer ändra
         //we assume that monster does 25 dmg per attack
-        monster.attack(testPlayer);
-        monster.attack(testPlayer);
-        monster.attack(testPlayer);
-        monster.attack(testPlayer);
-        monster.attack(testPlayer);
+        testMonster.attack(testPlayer);
+        testMonster.attack(testPlayer);
+        testMonster.attack(testPlayer);
+        testMonster.attack(testPlayer);
+        testMonster.attack(testPlayer);
 
-        Player.calculateHealth(monster.getDmg());
         assertEquals(0, testPlayer.getHealth());
     }
 

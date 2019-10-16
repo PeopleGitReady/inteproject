@@ -11,7 +11,7 @@ public class Player extends Character {
     }
 
     public String getName(){
-        return name;
+        return super.getName();
     }
 
     public void pickUpLoot(Item item) {
@@ -20,6 +20,19 @@ public class Player extends Character {
         } else {
             System.out.print("This inventory is full!");
         }
+    }
+
+    protected void setHealth(int damageGotten){
+        int i = maxHealth-damageGotten;
+        if(i<=0){
+            setIsDead(true);
+        }else{
+           setMaxHealth(i);
+        }
+    }
+
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
     }
 
     public ArrayList<Item> getInventory() {
