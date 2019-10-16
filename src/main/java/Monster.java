@@ -10,7 +10,7 @@ public class Monster extends Character {
 
     // Metod som kollar om Monster är död så droppa item på dess plats
 
-    public void monsterTakeDamage (int attack) {
+    public void TakeDamage (int attack) {
        int newHealth = getHealth() - attack;
        setHealth(newHealth);
         if (getHealth() <= 0) {
