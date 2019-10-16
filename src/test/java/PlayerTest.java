@@ -34,12 +34,6 @@ class PlayerTest {
 
 
 
-    @Test
-    void testHealthNumberRangeAboveRange(){
-        Player testCh = new Player("SavageB");
-        //assertTrue(testCh.healthRangeCorrect(testCh.getHealth()));
-
-    }
 
     @Test
     void healthDecreasesAfterAttack(){
