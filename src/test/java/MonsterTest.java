@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MonsterTest {
 
+    Monster bawser = new Monster("Bawser", 100, 20, 3);
+    Player mario = new Player("Mario");
+
 
     // Test klass för Monster liv
 
@@ -12,13 +15,6 @@ class MonsterTest {
     void checkIfItemdropIsNull() {
     }
 
-    @Test
-    void TestHealthNumberRangeNull(){
-        //healthRangeCorrect should return a boolean.
-        int x = Integer.parseInt(null);
-        Character testCh = new Character("SavageB",44,x);
-        assertFalse(testCh.healthRangeCorrect(testCh.getHealth));
-    }
 
 
     @Test
