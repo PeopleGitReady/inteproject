@@ -10,13 +10,29 @@ public class Player extends Character {
         super(name, 22, 100, 1);
     }
 
+    public String getName(){
+        return super.getName();
+    }
 
     public void pickUpLoot(Item item) {
         if(inventory.size() < 9) {
             inventory.add(item);
         } else {
-            System.out.println("This inventory is full!");
+            System.out.print("This inventory is full!");
         }
+    }
+
+    protected void setHealth(int damageGotten){
+        int i = maxHealth-damageGotten;
+        if(i<=0){
+            setIsDead(true);
+        }else{
+           setMaxHealth(i);
+        }
+    }
+
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
     }
 
     public ArrayList<Item> getInventory() {

@@ -34,9 +34,7 @@ public abstract class Character {
     public int getHealth(){
         return health;
     }
-    public void setHealth(int health){
-        this.health = health;
-    }
+
 
     public int getLevel(){
         return level;
@@ -60,14 +58,17 @@ public abstract class Character {
         this.isDead = isDead;
     }
 
-    //calculate Xplevel()
 
 
-
-    //healthIsCorrect(int)
 
         //calculate health
 
+    //attack monster to Payer
+    public void attack(Player c){
+        int attacker = this.attack;
+        c.setHealth(attacker);
+
+    }
 
 
 
