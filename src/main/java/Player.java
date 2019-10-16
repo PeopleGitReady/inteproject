@@ -22,12 +22,13 @@ public class Player extends Character {
         }
     }
 
-    protected void setHealth(int damageGotten){
-        int i = maxHealth-damageGotten;
-        if(i<=0){
+    public void takeDamage (int damage) {
+        int newHealth = getHealth() - damage;
+        setHealth(newHealth);
+        if (getHealth() <= 0) {
             setIsDead(true);
-        }else{
-           setMaxHealth(i);
+            System.out.println("You lost the game");
+            // game over, player cant move
         }
     }
 

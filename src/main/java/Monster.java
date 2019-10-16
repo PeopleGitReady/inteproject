@@ -12,14 +12,15 @@ public class Monster extends Character {
 
     // Metod som kollar om Monster är död så droppa item på dess plats
 
-    public void takeDamage (int attack) {
-       int newHealth = getHealth() - attack;
+    public void takeDamage (int damage) {
+       int newHealth = getHealth() - damage;
        setHealth(newHealth);
         if (getHealth() <= 0) {
             setIsDead(true);
             generateDrop(getPoint());
         }
     }
+
 
     public void generateDrop(Point point) {
         Item item = new Item(point);

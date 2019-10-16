@@ -4,16 +4,16 @@ public abstract class Character {
 
     private String name;
     private int health;
-    private int attack;
+    private int damage;
     private int level;
     private Point point;
     private boolean isDead;
 
 
-    public Character(String name, int health, int attack, int level) {
+    public Character(String name, int health, int damage, int level) {
         this.name = name;
         this.health = health;
-        this.attack = attack;
+        this.damage = damage;
         this.level = level;
     }
 
@@ -24,11 +24,11 @@ public abstract class Character {
     public String getName(){
         return name;
     }
-    public int getAttack(){
-        return attack;
+    public int getDamage(){
+        return damage;
     }
-    public void setAttack(int attack){
-        this.attack = attack;
+    public void setDamage(int damage){
+        this.damage = damage;
     }
 
     public int getHealth(){
@@ -63,9 +63,16 @@ public abstract class Character {
         //calculate health
 
     //attack monster to Payer
-    public void attack(Player c){
-        int attacker = this.attack;
-        c.setHealth(attacker);
+    public void attack(Character c){
+        if (c instanceof Player) {
+            Player p = (Player) c;
+            p.takeDamage(damage);
+        }
+
+        if (c instanceof Monster) {
+            Monster m = (Monster) c;
+            m.takeDamage(damage);
+        }
 
     }
 
