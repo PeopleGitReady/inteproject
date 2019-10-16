@@ -65,7 +65,7 @@ class PlayerTest {
         monster.attack(testPlayer);
 
         Player.calculateHealth(monster.getDmg());
-        assertEquals(0,);
+        assertEquals(0, testPlayer.getHealth());
     }
 
 
