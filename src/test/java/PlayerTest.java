@@ -68,9 +68,8 @@ class PlayerTest {
     void monsterDiesAfterAttack() {
         Bawser bawser = new Bawser();
         Player mario = new Player("Mario");
-        mario.setHealth(30);
+        mario.setHealth(20);
         assertFalse(mario.getIsDead());
-        bawser.attack(mario);
         bawser.attack(mario);
         assertTrue(mario.getIsDead());
     }
