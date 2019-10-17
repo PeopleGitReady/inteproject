@@ -59,7 +59,9 @@ public class Player extends Character {
     }
 
     public void setMaxHealth(int maxHealth) {
+
         this.maxHealth = maxHealth;
+
     }
 
     public ArrayList<Item> getInventory() {

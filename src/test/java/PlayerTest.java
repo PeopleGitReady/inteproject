@@ -80,14 +80,17 @@ class PlayerTest {
 
     @Test
     void nameContainsNumber() {
-        Player testCh = new Player("22.3");
-        assertTrue(testCh.getName().matches(".*\\d.*"));
+        assertThrows(IllegalArgumentException.class, () -> {
+            Player testCh = new Player("22.3");
+        });
     }
 
     @Test
     void nameEmpty(){
-        Player testCh = new Player("     ");
-        assertTrue(testCh.getName().trim().isEmpty());
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            Player testCh = new Player("     ");
+        });
     }
 
     @Test
