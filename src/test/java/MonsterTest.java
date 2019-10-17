@@ -39,7 +39,7 @@ class MonsterTest {
         assertTrue(bawser.getIsDead());
     }
 
-    // Test klass för Monster attack
+    // Test klass för när Monster attackerar Player
     @Test
     void monsterAttacksPlayer() {
         Monster bawser = new Monster("Bawser", 100, 20, 3);
