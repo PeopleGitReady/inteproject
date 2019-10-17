@@ -59,5 +59,14 @@ class PlayerTest {
         assertFalse(testPlayer.getInventory().contains(weapon));
     }
 
+    @Test
+    void monsterDiesAfterAttack() {
+        Monster bawser = new Monster("Bawser", 100, 100, 3);
+        Player mario = new Player("Mario");
+        assertFalse(mario.getIsDead());
+        bawser.attack(mario);
+        assertTrue(mario.getIsDead());
+    }
+
 
 }
