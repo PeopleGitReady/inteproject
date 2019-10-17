@@ -18,14 +18,16 @@ public abstract class Monster extends Character {
         if (getHealth() <= 0) {
             setIsDead(true);
             System.out.println("RIP");
-            generateDrop(getPoint());
+            // generateDrop(getPoint());
         }
     }
 
 
-
+/*
     public void generateDrop(Point point) {
         Item item = new Item(point);
     }
+
+ */
 
 }
