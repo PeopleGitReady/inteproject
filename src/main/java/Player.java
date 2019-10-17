@@ -33,6 +33,31 @@ public class Player extends Character {
         }
     }
 
+    public void useHealthPotion (HealthPotion healthPotion) {
+        boolean containsHealthPotion = false;
+
+        for (Item item : inventory) {
+            if (item instanceof HealthPotion) {
+
+                containsHealthPotion = true;
+                int increase = healthPotion.getHealthPoints();
+
+                if (getHealth() + increase >= maxHealth) {
+                    setHealth(maxHealth);
+                }
+                else {
+                    setHealth(getHealth() + increase);
+                }
+                inventory.remove(item);
+            }
+        }
+
+        if (containsHealthPotion) {
+            System.out.println("You do not have any health potions in your inventory!");
+        }
+
+    }
+
     public void setMaxHealth(int maxHealth) {
         this.maxHealth = maxHealth;
     }

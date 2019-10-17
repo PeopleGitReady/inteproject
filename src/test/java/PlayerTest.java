@@ -24,7 +24,7 @@ class PlayerTest {
     }
 
     @Test
-    void gainHealthOnTakingHealthPotion() {
+    void gainHealthOnConsumingHealthPotion() {
         //assuming a health potion always increases current hp by 20
         Player testPlayer = new Player("Johnny");
         Monster bawser = new Monster("Bawser", 100, 20, 3);
@@ -33,6 +33,18 @@ class PlayerTest {
         HealthPotion healthPotion = new HealthPotion();
         testPlayer.useHealthPotion(healthPotion);
         assertEquals(100, testPlayer.getHealth());
+    }
+
+    @Test
+    void healthPotionDoesNotExceedMaxHealth () {
+
+    }
+
+    @Test
+    void healthPotionDoesNotAffectMaxHealth () {
+        //assuming a health potion always increases current hp by 20
+        Player testPlayer = new Player("Johnny");
+
     }
 
     @Test
@@ -57,8 +69,9 @@ class PlayerTest {
 
     @Test
     void monsterDiesAfterAttack() {
-        Monster bawser = new Monster("Bawser", 100, 100, 3);
+        Monster bawser = new Monster("Bawser", 100, 40, 3);
         Player mario = new Player("Mario");
+        mario.setHealth(30);
         assertFalse(mario.getIsDead());
         bawser.attack(mario);
         assertTrue(mario.getIsDead());
