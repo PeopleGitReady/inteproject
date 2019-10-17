@@ -19,6 +19,14 @@ public abstract class Character {
         if (name == null) {
             throw new NullPointerException("Parameter Type cannot be null");
         }
+
+        if(name.trim().isEmpty()){
+            throw new IllegalArgumentException("Name cannot be Empty! ");
+        }
+        if(name.matches(".*\\d.*")){
+            throw new IllegalArgumentException("Name cannot be Number!");
+
+        }
     }
 
     public void movement(){
@@ -78,6 +86,8 @@ public abstract class Character {
             Monster m = (Monster) c;
             m.takeDamage(damage);
         }
+//
+
 
     }
 
