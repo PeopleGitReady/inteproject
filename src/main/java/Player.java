@@ -49,6 +49,7 @@ public class Player extends Character {
                     setHealth(getHealth() + increase);
                 }
                 inventory.remove(item);
+                break;
             }
         }
 
