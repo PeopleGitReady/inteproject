@@ -15,6 +15,10 @@ public abstract class Character {
         this.health = health;
         this.damage = damage;
         this.level = level;
+
+        if (name == null) {
+            throw new NullPointerException("Parameter Type cannot be null");
+        }
     }
 
     public void movement(){
