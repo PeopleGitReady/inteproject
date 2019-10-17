@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Monster extends Character {
+public abstract class Monster extends Character {
 
     //Monster bawser = new Monster("Bawser", 100, 10, 10);
 
