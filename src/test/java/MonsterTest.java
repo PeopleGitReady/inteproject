@@ -39,7 +39,16 @@ class MonsterTest {
         assertTrue(bawser.getIsDead());
     }
 
-    // Test klass för Monster attack
+    // Test klass för när Monster attackerar Player
+    @Test
+    void monsterAttacksPlayer() {
+        Monster bawser = new Monster("Bawser", 100, 20, 3);
+        Player mario = new Player("Mario");
+        assertEquals(100, mario.getHealth());
+        bawser.attack(mario);
+        assertEquals(80, mario.getHealth());
+    }
+
 
     // Monster Typ
 
