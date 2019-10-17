@@ -7,6 +7,7 @@ class PlayerTest {
     //Player testPlayer = new Player("Mike");
     //Monster testMonster = new Monster("Luigi",100, 25, 10);
 
+    /*
     @Test
     void healthDecreasesAfterAttack(){
         Monster bawser = new Monster("Bawser", 100, 20, 3);
@@ -15,6 +16,7 @@ class PlayerTest {
         bawser.attack(mario);
         assertEquals(80, mario.getHealth());
     }
+     */
 
     @Test
     void nameNull(){
