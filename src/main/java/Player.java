@@ -7,7 +7,7 @@ public class Player extends Character {
     private ArrayList<Item> inventory = new ArrayList<Item>();
 
     public Player(String name){
-        super(name, 100, 20, 1);
+        super(name, 100, 100, 1);
     }
 
     public String getName(){
