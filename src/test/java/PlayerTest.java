@@ -71,6 +71,7 @@ class PlayerTest {
         mario.setHealth(30);
         assertFalse(mario.getIsDead());
         bawser.attack(mario);
+        bawser.attack(mario);
         assertTrue(mario.getIsDead());
     }
 
