@@ -4,33 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
 
-    Player testPlayer = new Player("Mike");
-    Monster testMonster = new Monster("Luigi",100, 25, 10);
-
-    @Test
-    void nameContainsNumber() {
-        Player testCh = new Player("22.3");
-        assertTrue(testCh.getName().matches(".*\\d.*"));
-    }
-
-    @Test
-    void nameNull(){
-        assertThrows(NullPointerException.class, () -> {
-            Player testCh = new Player(null);
-        });
-    }
-
-    @Test
-    void nameEmpty(){
-        Player testCh = new Player("     ");
-        assertTrue(testCh.getName().trim().isEmpty());
-    }
-
-    @Test
-    void nameString(){
-        Player testCh = new Player("SavageB");
-        assertEquals("SavageB",testCh.getName());
-    }
+    //Player testPlayer = new Player("Mike");
+    //Monster testMonster = new Monster("Luigi",100, 25, 10);
 
     @Test
     void healthDecreasesAfterAttack(){
@@ -42,9 +17,29 @@ class PlayerTest {
     }
 
     @Test
+    void nameNull(){
+        assertThrows(NullPointerException.class, () -> {
+            Player testCh = new Player(null);
+        });
+    }
+
+    @Test
+    void gainHealthOnTakingHealthPotion() {
+        //assuming a health potion always increases current hp by 20
+        Player testPlayer = new Player("Johnny");
+        Monster bawser = new Monster("Bawser", 100, 20, 3);
+        bawser.attack(testPlayer);
+        assertEquals(80, testPlayer.getHealth());
+        HealthPotion healthPotion = new HealthPotion();
+        testPlayer.useHealthPotion(healthPotion);
+        assertEquals(100, testPlayer.getHealth());
+    }
+
+    @Test
     void fullInventorySizeStaysSameOnLoot() {
         // Player tries to pick up a new item with an already full inventory, size of inventory should stay unchanged.
         // need to add a full inventory to testPlayer for test to be valid
+        Player testPlayer = new Player("Mike");
         Weapon weapon = new Weapon();
         testPlayer.pickUpLoot(weapon);
         assertEquals(9, testPlayer.getInventory().size());
@@ -54,6 +49,7 @@ class PlayerTest {
     void fullInventoryDoesNotContainNewLoot() {
         // Player tries to pick up a new item with an already full inventory, inventory should not contain this item.
         // need to add a full inventory to testPlayer for test to be valid
+        Player testPlayer = new Player("Mike");
         Weapon weapon = new Weapon();
         testPlayer.pickUpLoot(weapon);
         assertFalse(testPlayer.getInventory().contains(weapon));
@@ -68,5 +64,23 @@ class PlayerTest {
         assertTrue(mario.getIsDead());
     }
 
+
+    @Test
+    void nameContainsNumber() {
+        Player testCh = new Player("22.3");
+        assertTrue(testCh.getName().matches(".*\\d.*"));
+    }
+
+    @Test
+    void nameEmpty(){
+        Player testCh = new Player("     ");
+        assertTrue(testCh.getName().trim().isEmpty());
+    }
+
+    @Test
+    void nameString(){
+        Player testCh = new Player("SavageB");
+        assertEquals("SavageB",testCh.getName());
+    }
 
 }
