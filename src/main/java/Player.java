@@ -33,14 +33,15 @@ public class Player extends Character {
         }
     }
 
-    public void useHealthPotion (HealthPotion healthPotion) {
+    public void useHealthPotion () {
         boolean containsHealthPotion = false;
 
         for (Item item : inventory) {
             if (item instanceof HealthPotion) {
 
                 containsHealthPotion = true;
-                int increase = healthPotion.getHealthPoints();
+               HealthPotion healthPotion = (HealthPotion) item;
+                int increase = healthPotion.getHealthPointsGiven();
 
                 if (getHealth() + increase >= maxHealth) {
                     setHealth(maxHealth);
@@ -67,4 +68,5 @@ public class Player extends Character {
     public ArrayList<Item> getInventory() {
         return inventory;
     }
+
 }

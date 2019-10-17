@@ -23,6 +23,7 @@ public class Monster extends Character {
     }
 
 
+
     public void generateDrop(Point point) {
         Item item = new Item(point);
     }

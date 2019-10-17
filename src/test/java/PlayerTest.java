@@ -31,7 +31,7 @@ class PlayerTest {
         bawser.attack(testPlayer);
         assertEquals(80, testPlayer.getHealth());
         HealthPotion healthPotion = new HealthPotion();
-        testPlayer.useHealthPotion(healthPotion);
+        testPlayer.useHealthPotion();
         assertEquals(100, testPlayer.getHealth());
     }
 
@@ -50,21 +50,21 @@ class PlayerTest {
     @Test
     void fullInventorySizeStaysSameOnLoot() {
         // Player tries to pick up a new item with an already full inventory, size of inventory should stay unchanged.
-        // need to add a full inventory to testPlayer for test to be valid
         Player testPlayer = new Player("Mike");
-        Weapon weapon = new Weapon();
-        testPlayer.pickUpLoot(weapon);
+        generateFullInventory(testPlayer);
+        Weapon droppedWeapon = new Weapon();
+        testPlayer.pickUpLoot(droppedWeapon);
         assertEquals(9, testPlayer.getInventory().size());
     }
 
     @Test
     void fullInventoryDoesNotContainNewLoot() {
         // Player tries to pick up a new item with an already full inventory, inventory should not contain this item.
-        // need to add a full inventory to testPlayer for test to be valid
         Player testPlayer = new Player("Mike");
-        Weapon weapon = new Weapon();
-        testPlayer.pickUpLoot(weapon);
-        assertFalse(testPlayer.getInventory().contains(weapon));
+        generateFullInventory(testPlayer);
+        Weapon droppedWeapon = new Weapon();
+        testPlayer.pickUpLoot(droppedWeapon);
+        assertFalse(testPlayer.getInventory().contains(droppedWeapon));
     }
 
     @Test
@@ -97,6 +97,33 @@ class PlayerTest {
     void nameString(){
         Player testCh = new Player("SavageB");
         assertEquals("SavageB",testCh.getName());
+    }
+
+    void generateFullInventory (Player player) {
+
+        HealthPotion healthPotion1 = new HealthPotion();
+        HealthPotion healthPotion2 = new HealthPotion();
+        HealthPotion healthPotion3 = new HealthPotion();
+        HealthPotion healthPotion4 = new HealthPotion();
+        HealthPotion healthPotion5 = new HealthPotion();
+
+        Weapon weapon1 = new Weapon();
+        Weapon weapon2 = new Weapon();
+        Weapon weapon3 = new Weapon();
+        Weapon weapon4 = new Weapon();
+        Weapon weapon5 = new Weapon();
+
+        player.pickUpLoot(healthPotion1);
+        player.pickUpLoot(healthPotion2);
+        player.pickUpLoot(healthPotion3);
+        player.pickUpLoot(healthPotion4);
+        player.pickUpLoot(healthPotion5);
+        player.pickUpLoot(weapon1);
+        player.pickUpLoot(weapon2);
+        player.pickUpLoot(weapon3);
+        player.pickUpLoot(weapon4);
+        player.pickUpLoot(weapon5);
+
     }
 
 }
