@@ -25,6 +25,7 @@ class PlayerTest {
         });
     }
 
+    /*
     @Test
     void gainHealthOnConsumingHealthPotion() {
         //assuming a health potion always increases current hp by 20
@@ -36,6 +37,8 @@ class PlayerTest {
         testPlayer.useHealthPotion();
         assertEquals(100, testPlayer.getHealth());
     }
+
+     */
 
     @Test
     void healthPotionDoesNotExceedMaxHealth () {
@@ -69,6 +72,7 @@ class PlayerTest {
         assertFalse(testPlayer.getInventory().contains(droppedWeapon));
     }
 
+    /*
     @Test
     void monsterDiesAfterAttack() {
         Monster bawser = new Monster("Bawser", 100, 40, 3);
@@ -78,6 +82,8 @@ class PlayerTest {
         bawser.attack(mario);
         assertTrue(mario.getIsDead());
     }
+
+     */
 
 
     @Test
