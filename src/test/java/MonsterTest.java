@@ -9,6 +9,8 @@ class MonsterTest {
     // Test klass för Monster liv
 
     // Test klass för drops av item
+
+
     @Test
     void checkIfItemdropIsNull() {
     }
@@ -20,9 +22,9 @@ class MonsterTest {
 
         Monster bawser = new Monster("Bawser", 100, 20, 3);
         Player mario = new Player("Mario");
-        assertEquals(100, mario.getHealth());
-        bawser.attack(mario);
-        assertEquals(80, mario.getHealth());
+        assertEquals(100, bawser.getHealth());
+        mario.attack(bawser);
+        assertEquals(80, bawser.getHealth());
     }
 
     // Test klass för Monster attack
