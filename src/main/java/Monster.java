@@ -17,6 +17,7 @@ public class Monster extends Character {
        setHealth(newHealth);
         if (getHealth() <= 0) {
             setIsDead(true);
+            System.out.println("RIP");
             generateDrop(getPoint());
         }
     }
