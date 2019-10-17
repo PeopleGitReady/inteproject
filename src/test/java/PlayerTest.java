@@ -4,19 +4,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
 
-    //Player testPlayer = new Player("Mike");
-    //Monster testMonster = new Monster("Luigi",100, 25, 10);
-
-    /*
     @Test
     void healthDecreasesAfterAttack(){
-        Monster bawser = new Monster("Bawser", 100, 20, 3);
+        Bawser bawser = new Bawser();
         Player mario = new Player("Mario");
         assertEquals(100, mario.getHealth());
         bawser.attack(mario);
         assertEquals(80, mario.getHealth());
     }
-     */
 
     @Test
     void nameNull(){
@@ -25,20 +20,17 @@ class PlayerTest {
         });
     }
 
-    /*
     @Test
     void gainHealthOnConsumingHealthPotion() {
         //assuming a health potion always increases current hp by 20
         Player testPlayer = new Player("Johnny");
-        Monster bawser = new Monster("Bawser", 100, 20, 3);
+        Bawser bawser = new Bawser();
         bawser.attack(testPlayer);
         assertEquals(80, testPlayer.getHealth());
         HealthPotion healthPotion = new HealthPotion();
         testPlayer.useHealthPotion();
         assertEquals(100, testPlayer.getHealth());
     }
-
-     */
 
     @Test
     void healthPotionDoesNotExceedMaxHealth () {
@@ -72,19 +64,15 @@ class PlayerTest {
         assertFalse(testPlayer.getInventory().contains(droppedWeapon));
     }
 
-    /*
     @Test
     void monsterDiesAfterAttack() {
-        Monster bawser = new Monster("Bawser", 100, 40, 3);
+        Bawser bawser = new Bawser();
         Player mario = new Player("Mario");
         mario.setHealth(30);
         assertFalse(mario.getIsDead());
         bawser.attack(mario);
         assertTrue(mario.getIsDead());
     }
-
-     */
-
 
     @Test
     void nameContainsNumber() {
@@ -95,7 +83,6 @@ class PlayerTest {
 
     @Test
     void nameEmpty(){
-
         assertThrows(IllegalArgumentException.class, () -> {
             Player testCh = new Player("     ");
         });
