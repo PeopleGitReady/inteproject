@@ -75,7 +75,6 @@ public abstract class Character {
 
     //calculate health
 
-    //attack monster to Payer
     public void attack(Character c){
         if (c instanceof Player) {
             Player p = (Player) c;
@@ -86,15 +85,7 @@ public abstract class Character {
             Monster m = (Monster) c;
             m.takeDamage(damage);
         }
-//
-
-
     }
-
-
-
-
-
 
 
 }

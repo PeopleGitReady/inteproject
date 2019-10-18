@@ -142,4 +142,16 @@ class PlayerTest {
 
     }
 
+    @Test
+    void playerMoveX() {
+        Player p = new Player("Playah");
+        p.move(1, 0);
+    }
+
+    @Test
+    void playerMoveY() {
+        Player p = new Player("Playah");
+        p.move(0, 1);
+    }
+
 }
