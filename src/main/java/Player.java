@@ -6,6 +6,10 @@ public class Player extends Character {
     private int xp = 0;
     private int maxHealth = 100;
     private ArrayList<Item> inventory = new ArrayList<Item>();
+    private ArrayList<Weapon> weaponsSlot= new ArrayList<>();
+    private boolean equipsWeaponStatus = false;
+
+
 
     public Player(String name){
         super(name, 100, 20, 1, new Point(0, 0) );
@@ -80,6 +84,40 @@ public class Player extends Character {
     public void moveY() {
         getPoint().setLocation(getPoint().getX() , getPoint().getY() + 1);
     }
+
+    public void addTotalDamage(Weapon weapon){
+
+        int sumOfDmg = weapon.getAttackBonus()+super.getDamage();
+
+        setDamage(sumOfDmg);
+
+    }
+
+    public boolean pickUpWeapon(Weapon weapon){
+        //this weapon also changes a stat of the player holding the weapon.
+
+        if(!(weapon instanceof Weapon)){
+            throw new IllegalArgumentException("The passed parameter has to be of type Weapon");
+        }
+
+        if(!weaponsSlot.isEmpty() && equipsWeaponStatus == true){
+            weaponsSlot.clear();
+            weaponsSlot.add(weapon);
+            addTotalDamage(weapon);
+            equipsWeaponStatus = true;
+        }
+
+        if(weaponsSlot.isEmpty() && equipsWeaponStatus == false ){
+            weaponsSlot.add(weapon);
+            addTotalDamage(weapon);
+            equipsWeaponStatus = true;
+
+        }
+
+        return equipsWeaponStatus;
+    }
+
+    //public boolean
 
 
 }

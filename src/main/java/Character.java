@@ -36,7 +36,7 @@ public abstract class Character {
     public int getDamage(){
         return damage;
     }
-    public void setDamage(int damage){
+    protected void setDamage(int damage){
         this.damage = damage;
     }
 
