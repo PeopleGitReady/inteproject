@@ -40,10 +40,18 @@ class MonsterTest {
 
     // Monster Typ
 
-    // Testklass för gå
+    @Test
+    void monsterMoveX() {
+        Goomba babyGoomb = new Goomba();
+        babyGoomb.moveX();
+        assertEquals(2, babyGoomb.getPoint().getX());
+    }
 
-    // Gå i X-led
-
-    // Gå i Y-led
+    @Test
+    void monsterMoveY() {
+        Goomba babyGoomb = new Goomba();
+        babyGoomb.moveY();
+        assertEquals(2, babyGoomb.getPoint().getY());
+    }
 
 }
