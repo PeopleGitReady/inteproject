@@ -49,6 +49,23 @@ class PlayerTest {
     }
 
     @Test
+    void useHealthPotionEvenIfItDoesntExistInInventory(){
+        Player testPlayer = new Player("Here's Johnny");
+        Weapon weapon1 = new Weapon();
+        Weapon weapon2 = new Weapon();
+
+        testPlayer.pickUpLoot(weapon1);
+        testPlayer.pickUpLoot(weapon2);
+        Bawser bawser = new Bawser();
+        bawser.attack(testPlayer);
+
+        testPlayer.useHealthPotion();
+
+        assertEquals(80, testPlayer.getHealth());
+
+    }
+
+    @Test
     void healthPotionDoesNotExceedMaxHealth () {
         Player player = new Player("Hodor");
         generateFullInventory(player);
