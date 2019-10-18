@@ -75,14 +75,13 @@ public abstract class Character {
     public void attack(Character c, Character attacker){
         if (c instanceof Player) {
             Player p = (Player) c;
-            Monster m = (Monster) attacker;
             p.takeDamage(damage);
         }
 
         if (c instanceof Monster) {
             Monster m = (Monster) c;
             Player a = (Player) attacker;
-            m.takeDamage(damage, a);
+            m.takeDamage(damage);
             if (m.getIsDead()) {
                 a.gainXp(m);
             }

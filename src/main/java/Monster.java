@@ -10,7 +10,7 @@ public abstract class Monster extends Character {
 
     public int getXpGiven () { return xpGiven;  }
 
-    public void takeDamage (int damage, Player player) {
+    public void takeDamage (int damage) {
        int newHealth = getHealth() - damage;
        setHealth(newHealth);
         if (getHealth() <= 0) {
