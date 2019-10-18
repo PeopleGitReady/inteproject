@@ -11,6 +11,14 @@ public abstract class Item {
     }
 
     public Item() {
-
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public Point getPoint() {
+        return point;
+    }
+
 }
