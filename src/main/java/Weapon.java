@@ -24,7 +24,6 @@ public class Weapon extends EquippableItem {
     }
 
 
-
     public void EquipWeapon(Character c){
 
         if(ammo !=0){

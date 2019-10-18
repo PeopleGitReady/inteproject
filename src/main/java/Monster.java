@@ -16,14 +16,6 @@ public abstract class Monster extends Character {
         }
     }
 
-    public void moveX() {
-        getPoint().setLocation(getPoint().getX() + 1, getPoint().getY());
-    }
-
-    public void moveY() {
-        getPoint().setLocation(getPoint().getX() , getPoint().getY() + 1);
-    }
-
 /*
     public void generateDrop(Point point) {
         Item item = new Item(point);
