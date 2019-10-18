@@ -187,7 +187,7 @@ class PlayerTest {
         assertEquals(1, p.getPoint().getX());
     }
 
-    /*
+
     @Test
     void playerMoveY() {
         Player p = new Player("Playah");
@@ -196,6 +196,6 @@ class PlayerTest {
         assertEquals(1, p.getPoint().getY());
     }
 
-    */
+
 
 }
