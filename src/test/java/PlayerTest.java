@@ -183,7 +183,7 @@ class PlayerTest {
     void playerMoveX() {
         Player p = new Player("Playah");
         assertEquals(0, p.getPoint().getX());
-        p.moveX();
+        //p.moveX(1);
         assertEquals(1, p.getPoint().getX());
     }
 
@@ -192,9 +192,52 @@ class PlayerTest {
     void playerMoveY() {
         Player p = new Player("Playah");
         assertEquals(0, p.getPoint().getX());
-        p.moveY();
+       // p.moveY(1);
         assertEquals(1, p.getPoint().getY());
     }
+
+
+
+
+    @Test
+    void playerEquipsNonWeaponItem(){
+
+    }
+
+    @Test
+    void playerEquipsWeaponAndChangesStats(){
+        //The aim of this test is to check if a wepon has been picked
+        //and it chages the damange stats of the Player carrying it
+
+        Player p = new Player("Here's Jonny");
+        Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
+
+
+        boolean testIsTrue = p.pickUpWeapon(valyrian_steel);
+        assertTrue(testIsTrue,"This shows player has accepted weapon");
+
+        assertEquals(53,p.getDamage());
+    }
+
+    @Test
+    void playerDropsWeapon(){
+        //the aim of this test is to check the dmg change in player
+        //And that the Arraylist that holds the weapon is empty!
+
+        Player p = new Player("Here's Jonny");
+        Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
+
+        p.pickUpWeapon(valyrian_steel);
+
+        boolean testIsTrue = p.pickUpWeapon(valyrian_steel);
+        assertTrue(testIsTrue);
+
+        //Now it  will checp after player drops a weapon
+
+
+
+    }
+
 
 
 
