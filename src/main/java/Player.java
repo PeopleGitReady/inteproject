@@ -21,6 +21,10 @@ public class Player extends Character {
 
     public int getMaxHealth () { return maxHealth; }
 
+    public int getXp () { return xp; }
+
+    public void setXp (int xp) { this.xp = xp; }
+
     public void setMaxHealth(int maxHealth) { this.maxHealth = maxHealth; }
 
     public void pickUpLoot(Item item) {
@@ -63,6 +67,10 @@ public class Player extends Character {
             System.out.println("You lost the game");
             // game over, player cant move
         }
+    }
+
+    public void gainXp(Monster m) {
+        setXp(m.calculateXp());
     }
 
     public void moveX() {
