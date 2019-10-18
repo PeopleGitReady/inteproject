@@ -24,24 +24,45 @@ class PlayerTest {
     void gainHealthOnConsumingHealthPotion() {
         //assuming a health potion always increases current hp by 20
         Player testPlayer = new Player("Johnny");
+        generateFullInventory(testPlayer);
         Bawser bawser = new Bawser();
         bawser.attack(testPlayer);
         assertEquals(80, testPlayer.getHealth());
-        HealthPotion healthPotion = new HealthPotion();
         testPlayer.useHealthPotion();
         assertEquals(100, testPlayer.getHealth());
     }
 
     @Test
     void healthPotionDoesNotExceedMaxHealth () {
+        Player player = new Player("Hodor");
+        generateFullInventory(player);
+        player.setHealth(85);
+        assertEquals(85, player.getHealth());
+        player.useHealthPotion();
+        assertEquals(100, player.getHealth());
 
     }
 
     @Test
     void healthPotionDoesNotAffectMaxHealth () {
-        //assuming a health potion always increases current hp by 20
+        // assuming a health potion always increases current hp by 20
         Player testPlayer = new Player("Johnny");
+        generateFullInventory(testPlayer);
+        assertEquals(100, testPlayer.getMaxHealth());
+        testPlayer.useHealthPotion();
+        assertEquals(100, testPlayer.getMaxHealth());
+    }
 
+    @Test
+    void useHealthPotionOnlyUsesOnePotion () {
+        Player testPlayer = new Player("Johnny");
+        HealthPotion healthPotion1 = new HealthPotion();
+        HealthPotion healthPotion2 = new HealthPotion();
+        testPlayer.pickUpLoot(healthPotion1);
+        testPlayer.pickUpLoot(healthPotion2);
+        assertEquals(2, testPlayer.getInventory().size());
+        testPlayer.useHealthPotion();
+        assertEquals(1, testPlayer.getInventory().size());
     }
 
     @Test
@@ -51,7 +72,7 @@ class PlayerTest {
         generateFullInventory(testPlayer);
         Weapon droppedWeapon = new Weapon();
         testPlayer.pickUpLoot(droppedWeapon);
-        assertEquals(9, testPlayer.getInventory().size());
+        assertEquals(10, testPlayer.getInventory().size());
     }
 
     @Test

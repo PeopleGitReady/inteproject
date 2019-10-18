@@ -14,21 +14,19 @@ public class Player extends Character {
         return super.getName();
     }
 
-    public void pickUpLoot(Item item) {
-        if(inventory.size() < 9) {
-            inventory.add(item);
-        } else {
-            System.out.print("This inventory is full!");
-        }
+    public ArrayList<Item> getInventory() {
+        return inventory;
     }
 
-    public void takeDamage (int damage) {
-        int newHealth = getHealth() - damage;
-        setHealth(newHealth);
-        if (getHealth() <= 0) {
-            setIsDead(true);
-            System.out.println("You lost the game");
-            // game over, player cant move
+    public int getMaxHealth () { return maxHealth; }
+
+    public void setMaxHealth(int maxHealth) { this.maxHealth = maxHealth; }
+
+    public void pickUpLoot(Item item) {
+        if(inventory.size() < 10) {
+            inventory.add(item);
+        } else {
+            System.out.print("This inventory is full! ");
         }
     }
 
@@ -37,7 +35,6 @@ public class Player extends Character {
 
         for (Item item : inventory) {
             if (item instanceof HealthPotion) {
-
                 containsHealthPotion = true;
                HealthPotion healthPotion = (HealthPotion) item;
                 int increase = healthPotion.getHealthPointsGiven();
@@ -52,21 +49,20 @@ public class Player extends Character {
                 break;
             }
         }
-
-        if (containsHealthPotion) {
+        if (! containsHealthPotion) {
             System.out.println("You do not have any health potions in your inventory!");
         }
-
     }
 
-    public void setMaxHealth(int maxHealth) {
-
-        this.maxHealth = maxHealth;
-
+    public void takeDamage (int damage) {
+        int newHealth = getHealth() - damage;
+        setHealth(newHealth);
+        if (getHealth() <= 0) {
+            setIsDead(true);
+            System.out.println("You lost the game");
+            // game over, player cant move
+        }
     }
 
-    public ArrayList<Item> getInventory() {
-        return inventory;
-    }
 
 }
