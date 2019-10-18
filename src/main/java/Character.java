@@ -29,10 +29,6 @@ public abstract class Character {
         }
     }
 
-    public void movement(){
-
-    }
-
     public String getName(){
         return name;
     }

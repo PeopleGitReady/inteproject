@@ -64,5 +64,9 @@ public class Player extends Character {
         }
     }
 
+    public void moveX(int x) {
+        getPoint().setLocation(getPoint().getX() + 1, getPoint().getY());
+    }
+
 
 }

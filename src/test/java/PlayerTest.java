@@ -145,13 +145,18 @@ class PlayerTest {
     @Test
     void playerMoveX() {
         Player p = new Player("Playah");
-        p.move(1, 0);
+        assertEquals(0, 0);
+        p.moveX(1);
+        assertEquals(1, 1);
     }
 
+    /*
     @Test
     void playerMoveY() {
         Player p = new Player("Playah");
-        p.move(0, 1);
+        p.moveX(0);
     }
+
+     */
 
 }
