@@ -183,7 +183,7 @@ class PlayerTest {
     void playerMoveX() {
         Player p = new Player("Playah");
         assertEquals(0, p.getPoint().getX());
-        //p.moveX(1);
+        p.moveX();
         assertEquals(1, p.getPoint().getX());
     }
 
@@ -192,7 +192,7 @@ class PlayerTest {
     void playerMoveY() {
         Player p = new Player("Playah");
         assertEquals(0, p.getPoint().getX());
-       // p.moveY(1);
+        p.moveY();
         assertEquals(1, p.getPoint().getY());
     }
 
