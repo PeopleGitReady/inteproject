@@ -65,11 +65,11 @@ public class Player extends Character {
         }
     }
 
-    public void moveX(int x) {
+    public void moveX() {
         getPoint().setLocation(getPoint().getX() + 1, getPoint().getY());
     }
 
-    public void moveY(int y) {
+    public void moveY() {
         getPoint().setLocation(getPoint().getX() , getPoint().getY() + 1);
     }
 
