@@ -14,6 +14,12 @@ public abstract class Item {
         this.point = point;
     }
 
+    public Item(String name) {
+        this.name = name;
+        this.point = point;
+    }
+
+
     public Item() {
 
     }
