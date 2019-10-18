@@ -1,8 +1,9 @@
+import java.awt.*;
 
 public abstract class Monster extends Character {
 
     public Monster(String name, int health, int attack, int level) {
-        super(name, health, attack, level);
+        super(name, health, attack, level, new Point(1, 1));
     }
 
     public void takeDamage (int damage) {

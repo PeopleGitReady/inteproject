@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Player extends Character {
@@ -7,7 +8,7 @@ public class Player extends Character {
     private ArrayList<Item> inventory = new ArrayList<Item>();
 
     public Player(String name){
-        super(name, 100, 20, 1);
+        super(name, 100, 20, 1, new Point(0, 0) );
     }
 
     public String getName(){
@@ -66,6 +67,10 @@ public class Player extends Character {
 
     public void moveX(int x) {
         getPoint().setLocation(getPoint().getX() + 1, getPoint().getY());
+    }
+
+    public void moveY(int y) {
+        getPoint().setLocation(getPoint().getY() + 1, getPoint().getY());
     }
 
 

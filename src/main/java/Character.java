@@ -10,11 +10,12 @@ public abstract class Character {
     private boolean isDead;
 
 
-    public Character(String name, int health, int damage, int level) {
+    public Character(String name, int health, int damage, int level, Point point) {
         this.name = name;
         this.health = health;
         this.damage = damage;
         this.level = level;
+        this.point = point;
 
         if (name == null) {
             throw new NullPointerException("Parameter Type cannot be null");
