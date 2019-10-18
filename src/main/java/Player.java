@@ -70,7 +70,7 @@ public class Player extends Character {
     }
 
     public void moveY(int y) {
-        getPoint().setLocation(getPoint().getY() + 1, getPoint().getY());
+        getPoint().setLocation(getPoint().getX() , getPoint().getY() + 1);
     }
 
 
