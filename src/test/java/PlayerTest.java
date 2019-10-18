@@ -5,6 +5,22 @@ import static org.junit.jupiter.api.Assertions.*;
 class PlayerTest {
 
     @Test
+    void gainXPOnSlayingMob () {
+
+    }
+
+    @Test
+    void levelUpOnGainingRequiredXP () {
+
+    }
+
+    @Test
+    void maxHealthIncreasesOnLevelUp () {
+
+    }
+
+
+    @Test
     void healthDecreasesAfterAttack(){
         Bawser bawser = new Bawser();
         Player mario = new Player("Mario");
@@ -30,6 +46,23 @@ class PlayerTest {
         assertEquals(80, testPlayer.getHealth());
         testPlayer.useHealthPotion();
         assertEquals(100, testPlayer.getHealth());
+    }
+
+    @Test
+    void useHealthPotionEvenIfItDoesntExistInInventory(){
+        Player testPlayer = new Player("Here's Johnny");
+        Weapon weapon1 = new Weapon();
+        Weapon weapon2 = new Weapon();
+
+        testPlayer.pickUpLoot(weapon1);
+        testPlayer.pickUpLoot(weapon2);
+        Bawser bawser = new Bawser();
+        bawser.attack(testPlayer);
+
+        testPlayer.useHealthPotion();
+
+        assertEquals(80, testPlayer.getHealth());
+
     }
 
     @Test

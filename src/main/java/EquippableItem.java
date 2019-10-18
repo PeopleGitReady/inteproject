@@ -16,4 +16,8 @@ public class EquippableItem extends Item{
 
     }
 
+    public EquippableItem(String name,Point point){
+        super(name,point);
+    }
+
 }
