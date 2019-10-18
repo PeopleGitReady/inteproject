@@ -5,6 +5,22 @@ import static org.junit.jupiter.api.Assertions.*;
 class PlayerTest {
 
     @Test
+    void gainXPOnSlayingMob () {
+
+    }
+
+    @Test
+    void levelUpOnGainingRequiredXP () {
+
+    }
+
+    @Test
+    void maxHealthIncreasesOnLevelUp () {
+
+    }
+
+
+    @Test
     void healthDecreasesAfterAttack(){
         Bawser bawser = new Bawser();
         Player mario = new Player("Mario");
