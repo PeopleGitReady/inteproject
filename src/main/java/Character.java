@@ -57,6 +57,7 @@ public abstract class Character {
     public Point getPoint(){
         return point;
     }
+
     public void setPoint(Point point){
         this.point = point;
     }
@@ -65,22 +66,26 @@ public abstract class Character {
         return isDead;
     }
 
-
     public void setIsDead(boolean isDead) {
         this.isDead = isDead;
     }
 
     //calculate health
 
-    public void attack(Character c){
+    public void attack(Character c, Character attacker){
         if (c instanceof Player) {
             Player p = (Player) c;
+            Monster m = (Monster) attacker;
             p.takeDamage(damage);
         }
 
         if (c instanceof Monster) {
             Monster m = (Monster) c;
-            m.takeDamage(damage);
+            Player a = (Player) attacker;
+            m.takeDamage(damage, a);
+            if (m.getIsDead()) {
+                a.gainXp(m);
+            }
         }
     }
 

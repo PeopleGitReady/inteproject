@@ -6,7 +6,11 @@ class PlayerTest {
 
     @Test
     void gainXPOnSlayingMob () {
-
+        Player player = new Player("Grogg");
+        assertEquals(0, player.getXp());
+        Goomba gombi = new Goomba();
+        player.attack(gombi, player);
+        assertEquals(5, player.getXp());
     }
 
     @Test
@@ -25,7 +29,7 @@ class PlayerTest {
         Bawser bawser = new Bawser();
         Player mario = new Player("Mario");
         assertEquals(100, mario.getHealth());
-        bawser.attack(mario);
+        bawser.attack(mario, bawser);
         assertEquals(80, mario.getHealth());
     }
 
@@ -42,7 +46,7 @@ class PlayerTest {
         Player testPlayer = new Player("Johnny");
         generateFullInventory(testPlayer);
         Bawser bawser = new Bawser();
-        bawser.attack(testPlayer);
+        bawser.attack(testPlayer, bawser);
         assertEquals(80, testPlayer.getHealth());
         testPlayer.useHealthPotion();
         assertEquals(100, testPlayer.getHealth());
@@ -57,7 +61,7 @@ class PlayerTest {
         testPlayer.pickUpLoot(weapon1);
         testPlayer.pickUpLoot(weapon2);
         Bawser bawser = new Bawser();
-        bawser.attack(testPlayer);
+        bawser.attack(testPlayer, bawser);
 
         testPlayer.useHealthPotion();
 
@@ -124,7 +128,7 @@ class PlayerTest {
         Player mario = new Player("Mario");
         mario.setHealth(20);
         assertFalse(mario.getIsDead());
-        bawser.attack(mario);
+        bawser.attack(mario, bawser);
         assertTrue(mario.getIsDead());
     }
 
@@ -183,6 +187,7 @@ class PlayerTest {
         assertEquals(1, p.getPoint().getX());
     }
 
+    /*
     @Test
     void playerMoveY() {
         Player p = new Player("Playah");
@@ -191,5 +196,6 @@ class PlayerTest {
         assertEquals(1, p.getPoint().getY());
     }
 
+    */
 
 }

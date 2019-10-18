@@ -15,7 +15,7 @@ class MonsterTest {
         Bawser bawser = new Bawser();
         Player mario = new Player("Mario");
         assertEquals(100, bawser.getHealth());
-        mario.attack(bawser);
+        mario.attack(bawser, mario);
         assertEquals(80, bawser.getHealth());
     }
 
@@ -24,7 +24,7 @@ class MonsterTest {
         Goomba goomba = new Goomba();
         Player mario = new Player("Mario");
         assertFalse(goomba.getIsDead());
-        mario.attack(goomba);
+        mario.attack(goomba, mario);
         assertTrue(goomba.getIsDead());
     }
 
@@ -33,7 +33,7 @@ class MonsterTest {
         Goomba goomba = new Goomba();
         Player mario = new Player("Mario");
         assertEquals(100, mario.getHealth());
-        goomba.attack(mario);
+        goomba.attack(mario, goomba);
         assertEquals(95, mario.getHealth());
     }
 
