@@ -221,13 +221,19 @@ class PlayerTest {
     @Test
     void playerDropsWeapon(){
 
-        //the aim of this test is to check the dmg change in player and
-        //if the player drop the weapon.
+        //the aim of this test is to check the dmg change in player
+        //if the player drop the weapon it has equipped.
 
 
         Player p = new Player("Here's Jonny");
         Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
 
+        p.pickUpLoot(valyrian_steel);
+        p.pickUpWeapon(valyrian_steel);
+
+        assertTrue(p.DropWeapon());
+
+        assertEquals(20, p.getDamage());
 
     }
 

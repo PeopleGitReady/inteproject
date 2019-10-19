@@ -94,7 +94,7 @@ public class Player extends Character {
     }
     public void setDamageToBaseDamage(){
         //this works like a reset Button for Damage
-        setDamage(super.getDamage());
+        setDamage(20);
     }
 
 
@@ -124,19 +124,22 @@ public class Player extends Character {
                 addTotalDamage(weapon);
                 return true;
             }
-
-
-
         }
 
         return false;
     }
 
-    /*public boolean DropWeapon(){
-        if(weaponsSlot.isEmpty() !){
-
+    public boolean DropWeapon(){
+        if(!weaponsSlot.isEmpty()){
+            Weapon w = weaponsSlot.get(0);
+            weaponsSlot.clear();
+            inventory.add(w);
+            setDamageToBaseDamage();
+            return true;
         }
-    }*/
+
+        return false;
+    }
 
 
 
