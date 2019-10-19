@@ -10,13 +10,8 @@ public class Player extends Character {
     private boolean equipsWeaponStatus = false;
 
 
-
     public Player(String name){
         super(name, 100, 20, 1, new Point(0, 0) );
-    }
-
-    public String getName(){
-        return super.getName();
     }
 
     public ArrayList<Item> getInventory() {
@@ -31,11 +26,41 @@ public class Player extends Character {
 
     public void setMaxHealth(int maxHealth) { this.maxHealth = maxHealth; }
 
+    public void moveX() {
+        if (! getIsDead())
+        getPoint().setLocation(getPoint().getX() + 1, getPoint().getY());
+    }
+
+    public void moveY() {
+        if (! getIsDead())
+        getPoint().setLocation(getPoint().getX() , getPoint().getY() + 1);
+    }
+
     public void pickUpLoot(Item item) {
         if(inventory.size() < 10) {
             inventory.add(item);
         } else {
             System.out.print("This inventory is full! ");
+        }
+    }
+
+    public void takeDamage (int damage) {
+        int newHealth = getHealth() - damage;
+        setHealth(newHealth);
+        if (getHealth() <= 0) {
+            setIsDead(true);
+            System.out.println("You lost the game");
+            // game over, player should not be able to move!
+        }
+    }
+
+    public void gainXp(Monster m) {
+        setXp(getXp() + m.calculateXp());
+
+        if (getXp() >= ( getLevel() * getLevel() ) * 100 ) {
+            setLevel(getLevel() + 1);
+            setMaxHealth(getMaxHealth() + 50);
+            System.out.println("Ding ding ding, you are now level " + getLevel() + "! Congratulations!");
         }
     }
 
@@ -63,31 +88,9 @@ public class Player extends Character {
         }
     }
 
-    public void takeDamage (int damage) {
-        int newHealth = getHealth() - damage;
-        setHealth(newHealth);
-        if (getHealth() <= 0) {
-            setIsDead(true);
-            System.out.println("You lost the game");
-            // game over, player cant move
-        }
-    }
-
-    public void gainXp(Monster m) {
-        setXp(m.calculateXp());
-    }
-
-    public void moveX() {
-        getPoint().setLocation(getPoint().getX() + 1, getPoint().getY());
-    }
-
-    public void moveY() {
-        getPoint().setLocation(getPoint().getX() , getPoint().getY() + 1);
-    }
-
     public void addTotalDamage(Weapon weapon){
 
-        int sumOfDmg = weapon.getAttackBonus()+super.getDamage();
+        int sumOfDmg = weapon.getAttackBonus()+getDamage();
 
         setDamage(sumOfDmg);
 
@@ -129,7 +132,7 @@ public class Player extends Character {
         return false;
     }
 
-    public boolean DropWeapon(){
+    public boolean dropWeapon(){
         if(!weaponsSlot.isEmpty()){
             Weapon w = weaponsSlot.get(0);
             weaponsSlot.clear();
@@ -140,9 +143,5 @@ public class Player extends Character {
 
         return false;
     }
-
-
-
-
 
 }
