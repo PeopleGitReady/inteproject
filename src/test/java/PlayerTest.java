@@ -211,6 +211,7 @@ class PlayerTest {
         Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
 
 
+        p.pickUpLoot(valyrian_steel);
         boolean testIsTrue = p.pickUpWeapon(valyrian_steel);
         assertTrue(testIsTrue,"This shows player has accepted weapon");
 
@@ -219,19 +220,13 @@ class PlayerTest {
 
     @Test
     void playerDropsWeapon(){
-        //the aim of this test is to check the dmg change in player
-        //And that the Arraylist that holds the weapon is empty!
+
+        //the aim of this test is to check the dmg change in player and
+        //if the player drop the weapon.
+
 
         Player p = new Player("Here's Jonny");
         Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
-
-        p.pickUpWeapon(valyrian_steel);
-
-        boolean testIsTrue = p.pickUpWeapon(valyrian_steel);
-        assertTrue(testIsTrue);
-
-        //Now it  will checp after player drops a weapon
-
 
 
     }

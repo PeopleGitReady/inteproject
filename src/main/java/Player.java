@@ -92,32 +92,54 @@ public class Player extends Character {
         setDamage(sumOfDmg);
 
     }
+    public void setDamageToBaseDamage(){
+        //this works like a reset Button for Damage
+        setDamage(super.getDamage());
+    }
 
+
+    //name could be changed to equipWeapon if you REALLY want
     public boolean pickUpWeapon(Weapon weapon){
         //this weapon also changes a stat of the player holding the weapon.
 
-        if(!(weapon instanceof Weapon)){
-            throw new IllegalArgumentException("The passed parameter has to be of type Weapon");
+
+        if(inventory.contains(weapon)){
+
+            if(!weaponsSlot.isEmpty()){
+
+                Weapon tempWeapon = weaponsSlot.get(0);
+                weaponsSlot.clear();
+                setDamageToBaseDamage();
+
+                weaponsSlot.add(weapon);
+                addTotalDamage(weapon);
+                inventory.remove(weapon);
+
+                inventory.add(tempWeapon);
+
+                return true;
+
+            }else{
+                weaponsSlot.add(weapon);
+                addTotalDamage(weapon);
+                return true;
+            }
+
+
+
         }
 
-        if(!weaponsSlot.isEmpty() && equipsWeaponStatus == true){
-            weaponsSlot.clear();
-            weaponsSlot.add(weapon);
-            addTotalDamage(weapon);
-            equipsWeaponStatus = true;
-        }
-
-        if(weaponsSlot.isEmpty() && equipsWeaponStatus == false ){
-            weaponsSlot.add(weapon);
-            addTotalDamage(weapon);
-            equipsWeaponStatus = true;
-
-        }
-
-        return equipsWeaponStatus;
+        return false;
     }
 
-    //public boolean
+    /*public boolean DropWeapon(){
+        if(weaponsSlot.isEmpty() !){
+
+        }
+    }*/
+
+
+
 
 
 }
