@@ -7,7 +7,6 @@ public class Player extends Character {
     private int maxHealth = 100;
     private ArrayList<Item> inventory = new ArrayList<Item>();
     private ArrayList<Weapon> weaponsSlot= new ArrayList<>();
-    private boolean equipsWeaponStatus = false;
 
 
     public Player(String name){
