@@ -186,32 +186,23 @@ class PlayerTest {
         assertEquals(1, p.getPoint().getY());
     }
 
-
     @Test
     void equipNonWeaponItem(){
 
     }
 
     @Test
-    void equipWeaponChangesStats(){
-        //The aim of this test is to check if a wepon has been picked
-        //and it chages the damange stats of the Player carrying it
+    void equipWeaponChangesDamage(){
 
         Player p = new Player("Here's Jonny");
         Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
 
-
         p.pickUpLoot(valyrian_steel);
-        boolean testIsTrue = p.equipWeapon(valyrian_steel);
-        assertTrue(testIsTrue,"This shows player has accepted weapon");
-
         assertEquals(53,p.getDamage());
     }
 
     @Test
-    void unequipWeapon(){
-        //the aim of this test is to check the dmg change in player
-        //if the player drop the weapon it has equipped.
+    void unequipWeaponChangesDamage(){
 
         Player p = new Player("Here's Jonny");
         Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
@@ -219,12 +210,10 @@ class PlayerTest {
         p.pickUpLoot(valyrian_steel);
         p.equipWeapon(valyrian_steel);
 
-        assertTrue(p.unequipWeapon());
-
         assertEquals(20, p.getDamage());
     }
 
-    void generateFullInventory (Player player) {
+    private void generateFullInventory (Player player) {
 
         HealthPotion healthPotion1 = new HealthPotion();
         HealthPotion healthPotion2 = new HealthPotion();

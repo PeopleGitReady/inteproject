@@ -59,4 +59,6 @@ class MonsterTest {
         assertEquals(10, gombiboye.calculateXp());
     }
 
+
+
 }
