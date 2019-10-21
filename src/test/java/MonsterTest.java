@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MonsterTest {
 
     // Test klass för drops av item
-
+/*
     @Test
     void checkIfItemIsDropped() {
         Goomba groovyGoomba = new Goomba();
@@ -13,6 +13,8 @@ class MonsterTest {
         // Kolla platsen Goomba dog på
         // Droppa item där
     }
+
+ */
 
     @Test
     void healthDecreasesAfterAttack(){
