@@ -7,7 +7,11 @@ class MonsterTest {
     // Test klass för drops av item
 
     @Test
-    void checkIfItemdropIsNull() {
+    void checkIfItemIsDropped() {
+        Goomba groovyGoomba = new Goomba();
+        assertTrue(groovyGoomba.getIsDead());
+        // Kolla platsen Goomba dog på
+        // Droppa item där
     }
 
     @Test
