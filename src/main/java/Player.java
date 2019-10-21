@@ -10,7 +10,7 @@ public class Player extends Character {
 
 
     public Player(String name){
-        super(name, 100, 20, 1, new Point(0, 0) );
+        super(name, 100, 20, 1);
     }
 
     public ArrayList<Item> getInventory() {
@@ -25,14 +25,21 @@ public class Player extends Character {
 
     public void setMaxHealth(int maxHealth) { this.maxHealth = maxHealth; }
 
-    public void moveX() {
+    public void moveRight() {
         if (! getIsDead())
-        getPoint().setLocation(getPoint().getX() + 1, getPoint().getY());
+            super.setLocation(super.getX() + 1, super.getY());
     }
-
-    public void moveY() {
+    public void moveLeft() {
         if (! getIsDead())
-        getPoint().setLocation(getPoint().getX() , getPoint().getY() + 1);
+            super.setLocation(super.getX() - 1, super.getY());
+    }
+    public void moveUp() {
+        if (! getIsDead())
+            super.setLocation(super.getX() , super.getY() + 1);
+    }
+    public void moveDown() {
+        if (! getIsDead())
+            super.setLocation(super.getX() , super.getY() + 1);
     }
 
     public void pickUpLoot(Item item) {

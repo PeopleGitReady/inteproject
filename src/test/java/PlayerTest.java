@@ -43,8 +43,8 @@ class PlayerTest {
         player.setHealth(4);
         Goomba gogo = new Goomba();
         gogo.attack(player, gogo);;
-        player.moveX();
-        assertEquals(point, player.getPoint());
+        player.moveRight();
+        assertEquals(point, player.getLocation());
     }
 
 
@@ -172,18 +172,18 @@ class PlayerTest {
     }
 
     @Test
-    void moveX() {
+    void moveRight() {
         Player p = new Player("Playah");
-        p.moveX();
-        assertEquals(1, p.getPoint().getX());
+        p.moveRight();
+        assertEquals(1, p.getX());
     }
 
 
     @Test
-    void moveY() {
+    void moveUp() {
         Player p = new Player("Playah");
-        p.moveY();
-        assertEquals(1, p.getPoint().getY());
+        p.moveUp();
+        assertEquals(1, p.getY());
     }
 
     @Test

@@ -5,16 +5,24 @@ public abstract class Monster extends Character {
     public int xpGiven;
 
     public Monster(String name, int health, int attack, int level, int xpGiven) {
-        super(name, health, attack, level, new Point(1, 1));
+        super(name, health, attack, level);
         this.xpGiven = xpGiven;
     }
 
-    public void moveX() {
-        getPoint().setLocation(getPoint().getX() + 1, getPoint().getY());
+    public void moveRight() {
+        super.setLocation(super.getX() + 1, super.getY());
     }
 
-    public void moveY() {
-        getPoint().setLocation(getPoint().getX() , getPoint().getY() + 1);
+    public void moveLeft() {
+        super.setLocation(super.getX() - 1, super.getY());
+    }
+
+    public void moveUp() {
+        super.setLocation(super.getX() , super.getY() + 1);
+    }
+
+    public void moveDown() {
+        super.setLocation(super.getX() , super.getY() - 1);
     }
 
     public int calculateXp () {

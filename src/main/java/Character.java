@@ -1,21 +1,19 @@
 import java.awt.*;
 
-public abstract class Character {
+public abstract class Character extends Point {
 
     private String name;
     private int health;
     private int damage;
     private int level;
-    private Point point;
     private boolean isDead;
 
 
-    public Character(String name, int health, int damage, int level, Point point) {
+    public Character(String name, int health, int damage, int level) {
         this.name = name;
         this.health = health;
         this.damage = damage;
         this.level = level;
-        this.point = point;
 
         if (name == null) {
             throw new NullPointerException("Parameter Type cannot be null");
@@ -52,14 +50,6 @@ public abstract class Character {
     }
     public void setLevel(int level){
         this.level = level;
-    }
-
-    public Point getPoint(){
-        return point;
-    }
-
-    public void setPoint(Point point){
-        this.point = point;
     }
 
     public boolean getIsDead() {

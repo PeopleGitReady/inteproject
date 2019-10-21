@@ -43,14 +43,14 @@ class MonsterTest {
     void moveX() {
         Goomba babyGoomb = new Goomba();
         babyGoomb.moveX();
-        assertEquals(2, babyGoomb.getPoint().getX());
+        assertEquals(2, babyGoomb.getX());
     }
 
     @Test
     void moveY() {
         Goomba babyGoomb = new Goomba();
         babyGoomb.moveY();
-        assertEquals(2, babyGoomb.getPoint().getY());
+        assertEquals(2, babyGoomb.getY());
     }
 
     @Test
