@@ -9,7 +9,6 @@ class PlayerTest {
     @Test
     void gainXPOnSlayingMob () {
         Player player = new Player("Grogg");
-        assertEquals(0, player.getXp());
         Goomba gombi = new Goomba();
         player.attack(gombi, player);
         assertEquals(10, player.getXp());
@@ -117,7 +116,6 @@ class PlayerTest {
         HealthPotion healthPotion2 = new HealthPotion();
         testPlayer.pickUpLoot(healthPotion1);
         testPlayer.pickUpLoot(healthPotion2);
-        assertEquals(2, testPlayer.getInventory().size());
         testPlayer.useHealthPotion();
         assertEquals(1, testPlayer.getInventory().size());
     }
@@ -178,12 +176,21 @@ class PlayerTest {
         assertEquals(1, p.getPoint().getX());
     }
 
-
     @Test
     void moveY() {
         Player p = new Player("Playah");
         p.moveY();
         assertEquals(1, p.getPoint().getY());
+    }
+
+    @Test
+    void moveXOutOfBounds () {
+        // player should not be able to move outside of the map boundary
+    }
+
+    @Test
+    void moveYOutOfBounds () {
+
     }
 
     @Test

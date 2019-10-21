@@ -38,7 +38,6 @@ class MonsterTest {
         assertEquals(95, mario.getHealth());
     }
 
-    // Monster Typ
     @Test
     void moveX() {
         Goomba babyGoomb = new Goomba();
@@ -54,11 +53,14 @@ class MonsterTest {
     }
 
     @Test
+    void moveYOutOfBounds () {
+
+    }
+
+    @Test
     void checkCalculateXpIsCorrect () {
         Goomba gombiboye = new Goomba();
         assertEquals(10, gombiboye.calculateXp());
     }
-
-
 
 }
