@@ -117,6 +117,7 @@ public class Player extends Character {
     }
 
     public void unequipWeapon(){
+
         if(! weaponsSlot.isEmpty() && getInventory().size() < 10 ) {
             Weapon w = weaponsSlot.get(0);
             weaponsSlot.clear();

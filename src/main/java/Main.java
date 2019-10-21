@@ -6,7 +6,7 @@ public class Main {
 
         Weapon w = new Weapon("KEWLSowrd",33,Weapon.EPIC);
 
-        System.out.println(w.isEpic());
+        System.out.println(w.toString());
 
     }
 }

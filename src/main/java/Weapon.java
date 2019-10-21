@@ -62,4 +62,5 @@ public class Weapon extends EquippableItem {
 
     }
 
+
 }
