@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MonsterTest {
 
     // Test klass för drops av item
-
+/*
     @Test
     void checkIfItemIsDropped() {
         Goomba groovyGoomba = new Goomba();
@@ -13,6 +13,8 @@ class MonsterTest {
         // Kolla platsen Goomba dog på
         // Droppa item där
     }
+
+ */
 
     @Test
     void healthDecreasesAfterAttack(){
@@ -38,7 +40,6 @@ class MonsterTest {
         assertEquals(95, mario.getHealth());
     }
 
-    // Monster Typ
     @Test
     void moveX() {
         Goomba babyGoomb = new Goomba();
@@ -54,11 +55,14 @@ class MonsterTest {
     }
 
     @Test
+    void moveYOutOfBounds () {
+
+    }
+
+    @Test
     void checkCalculateXpIsCorrect () {
         Goomba gombiboye = new Goomba();
         assertEquals(10, gombiboye.calculateXp());
     }
-
-
 
 }

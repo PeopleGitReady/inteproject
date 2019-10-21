@@ -1,7 +1,10 @@
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class MapTest {
-    @Test
+class MapTest {
+
+    // check drops
+    // check terrain
 
 
 }

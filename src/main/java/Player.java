@@ -117,12 +117,13 @@ public class Player extends Character {
     }
 
     public void unequipWeapon(){
-        if(!weaponsSlot.isEmpty() && getInventory().size() < 10){
+        if(! weaponsSlot.isEmpty() && getInventory().size() < 10 ) {
             Weapon w = weaponsSlot.get(0);
             weaponsSlot.clear();
             inventory.add(w);
             setDamage(getDamage() - w.getAttackBonus());
+        } else {
+            System.out.println("Your inventory is full!");
         }
-        System.out.println("Your inventory is full!");
     }
 }

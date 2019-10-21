@@ -9,7 +9,6 @@ class PlayerTest {
     @Test
     void gainXPOnSlayingMob () {
         Player player = new Player("Grogg");
-        assertEquals(0, player.getXp());
         Goomba gombi = new Goomba();
         player.attack(gombi, player);
         assertEquals(10, player.getXp());
@@ -117,7 +116,6 @@ class PlayerTest {
         HealthPotion healthPotion2 = new HealthPotion();
         testPlayer.pickUpLoot(healthPotion1);
         testPlayer.pickUpLoot(healthPotion2);
-        assertEquals(2, testPlayer.getInventory().size());
         testPlayer.useHealthPotion();
         assertEquals(1, testPlayer.getInventory().size());
     }
@@ -178,12 +176,21 @@ class PlayerTest {
         assertEquals(1, p.getX());
     }
 
-
     @Test
     void moveUp() {
         Player p = new Player("Playah");
         p.moveUp();
         assertEquals(1, p.getY());
+    }
+
+    @Test
+    void moveXOutOfBounds () {
+        // player should not be able to move outside of the map boundary
+    }
+
+    @Test
+    void moveYOutOfBounds () {
+
     }
 
     @Test
@@ -198,6 +205,7 @@ class PlayerTest {
         Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
 
         p.pickUpLoot(valyrian_steel);
+        p.equipWeapon(valyrian_steel);
         assertEquals(53,p.getDamage());
     }
 
@@ -208,7 +216,8 @@ class PlayerTest {
         Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
 
         p.pickUpLoot(valyrian_steel);
-        p.equipWeapon(valyrian_steel);
+        p.unequipWeapon();
+
 
         assertEquals(20, p.getDamage());
     }
