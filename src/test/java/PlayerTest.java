@@ -198,6 +198,7 @@ class PlayerTest {
         Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
 
         p.pickUpLoot(valyrian_steel);
+        p.equipWeapon(valyrian_steel);
         assertEquals(53,p.getDamage());
     }
 

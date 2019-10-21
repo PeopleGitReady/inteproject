@@ -6,7 +6,7 @@ public class Weapon extends EquippableItem {
 
     //fix rarity
 
-    private static final int CLASSIC=1;
+    public static final int CLASSIC=1;
     public static final int RARE=2;
     public static final int EPIC=4;
 
@@ -47,7 +47,19 @@ public class Weapon extends EquippableItem {
 
     public int getAttackBonus(){
 //fix logic for rarity with attack bonus
-        return attackBonus;
+        if(isClassic() == true){
+            return attackBonus+CLASSIC;
         }
+        if(isRare() == true){
+            return attackBonus+RARE;
+        }
+
+        if(isEpic() == true){
+            return attackBonus+EPIC;
+        }
+
+        return attackBonus;
+
+    }
 
 }
