@@ -7,14 +7,17 @@ class MonsterTest {
     // Test klass för drops av item
 
     @Test
-    void checkIfItemdropIsNull() {
+    void checkIfItemIsDropped() {
+        Goomba groovyGoomba = new Goomba();
+        assertTrue(groovyGoomba.getIsDead());
+        // Kolla platsen Goomba dog på
+        // Droppa item där
     }
 
     @Test
     void healthDecreasesAfterAttack(){
         Bawser bawser = new Bawser();
         Player mario = new Player("Mario");
-        assertEquals(100, bawser.getHealth());
         mario.attack(bawser, mario);
         assertEquals(80, bawser.getHealth());
     }
@@ -23,7 +26,6 @@ class MonsterTest {
     void monsterDiesAfterAttack() {
         Goomba goomba = new Goomba();
         Player mario = new Player("Mario");
-        assertFalse(goomba.getIsDead());
         mario.attack(goomba, mario);
         assertTrue(goomba.getIsDead());
     }
@@ -32,7 +34,6 @@ class MonsterTest {
     void monsterAttacksPlayer() {
         Goomba goomba = new Goomba();
         Player mario = new Player("Mario");
-        assertEquals(100, mario.getHealth());
         goomba.attack(mario, goomba);
         assertEquals(95, mario.getHealth());
     }
