@@ -87,24 +87,7 @@ public class Player extends Character {
         }
     }
 
-    /*
-    public void addTotalDamage(Weapon weapon){
-
-        int sumOfDmg = weapon.getAttackBonus()+getDamage();
-
-        setDamage(sumOfDmg);
-
-    }
-    */
-
-    /*
-    public void setDamageToBaseDamage(){
-        //this works like a reset Button for Damage
-        setDamage(20);
-    }
-    */
-
-    public boolean equipWeapon(Weapon weapon){
+    public void equipWeapon(Weapon weapon){
         //this weapon also changes a stat of the player holding the weapon.
 
         if(inventory.contains(weapon)){
@@ -112,41 +95,27 @@ public class Player extends Character {
             if(!weaponsSlot.isEmpty()){
 
                 Weapon tempWeapon = weaponsSlot.get(0);
+                inventory.add(tempWeapon);
                 weaponsSlot.clear();
-                //setDamage(getDamage() - tempWeapon.getAttackBonus());
-                //setDamageToBaseDamage();
-
                 weaponsSlot.add(weapon);
                 setDamage(getDamage() + weapon.getAttackBonus());
-                //addTotalDamage(weapon);
                 inventory.remove(weapon);
 
-                inventory.add(tempWeapon);
-
-                return true;
-
-            }else{
+            } else {
                 weaponsSlot.add(weapon);
-                //addTotalDamage(weapon);
                 setDamage(getDamage() + weapon.getAttackBonus());
-                return true;
+                inventory.remove(weapon);
             }
         }
-
-        return false;
     }
 
-    public boolean unequipWeapon(){
+    public void unequipWeapon(){
         if(!weaponsSlot.isEmpty() && getInventory().size() < 10){
             Weapon w = weaponsSlot.get(0);
             weaponsSlot.clear();
             inventory.add(w);
             setDamage(getDamage() - w.getAttackBonus());
-            //setDamageToBaseDamage();
-            return true;
         }
-
-        return false;
+        System.out.println("Your inventory is full!");
     }
-
 }
