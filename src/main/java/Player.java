@@ -87,6 +87,7 @@ public class Player extends Character {
         }
     }
 
+    /*
     public void addTotalDamage(Weapon weapon){
 
         int sumOfDmg = weapon.getAttackBonus()+getDamage();
@@ -94,16 +95,17 @@ public class Player extends Character {
         setDamage(sumOfDmg);
 
     }
+    */
+
+    /*
     public void setDamageToBaseDamage(){
         //this works like a reset Button for Damage
         setDamage(20);
     }
+    */
 
-
-    //name could be changed to equipWeapon if you REALLY want
-    public boolean pickUpWeapon(Weapon weapon){
+    public boolean equipWeapon(Weapon weapon){
         //this weapon also changes a stat of the player holding the weapon.
-
 
         if(inventory.contains(weapon)){
 
@@ -111,10 +113,12 @@ public class Player extends Character {
 
                 Weapon tempWeapon = weaponsSlot.get(0);
                 weaponsSlot.clear();
-                setDamageToBaseDamage();
+                //setDamage(getDamage() - tempWeapon.getAttackBonus());
+                //setDamageToBaseDamage();
 
                 weaponsSlot.add(weapon);
-                addTotalDamage(weapon);
+                setDamage(getDamage() + weapon.getAttackBonus());
+                //addTotalDamage(weapon);
                 inventory.remove(weapon);
 
                 inventory.add(tempWeapon);
@@ -123,7 +127,8 @@ public class Player extends Character {
 
             }else{
                 weaponsSlot.add(weapon);
-                addTotalDamage(weapon);
+                //addTotalDamage(weapon);
+                setDamage(getDamage() + weapon.getAttackBonus());
                 return true;
             }
         }
@@ -131,12 +136,13 @@ public class Player extends Character {
         return false;
     }
 
-    public boolean dropWeapon(){
-        if(!weaponsSlot.isEmpty()){
+    public boolean unequipWeapon(){
+        if(!weaponsSlot.isEmpty() && getInventory().size() < 10){
             Weapon w = weaponsSlot.get(0);
             weaponsSlot.clear();
             inventory.add(w);
-            setDamageToBaseDamage();
+            setDamage(getDamage() - w.getAttackBonus());
+            //setDamageToBaseDamage();
             return true;
         }
 

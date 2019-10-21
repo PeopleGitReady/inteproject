@@ -34,8 +34,6 @@ class MonsterTest {
         assertEquals(95, mario.getHealth());
     }
 
-
-
     // Monster Typ
     @Test
     void moveX() {
