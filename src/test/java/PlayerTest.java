@@ -22,9 +22,7 @@ class PlayerTest {
         Goomba gomblord = new Goomba();
         player.setXp(95);
         gomblord.setHealth(5);
-        assertEquals(1, player.getLevel());
         player.attack(gomblord, player);
-        assertTrue(gomblord.getIsDead());
         assertEquals(2, player.getLevel());
     }
 
@@ -34,9 +32,7 @@ class PlayerTest {
         Goomba gomblord = new Goomba();
         player.setXp(95);
         gomblord.setHealth(5);
-        assertEquals(1, player.getLevel());
         player.attack(gomblord, player);
-        assertTrue(gomblord.getIsDead());
         assertEquals(150, player.getMaxHealth());
     }
 
@@ -44,11 +40,9 @@ class PlayerTest {
     void playerTriesToMoveWhenDead () {
         Player player = new Player("JoeSchmoe");
         Point point = new Point(0, 0);
-        assertEquals(point, player.getPoint());
         player.setHealth(4);
         Goomba gogo = new Goomba();
-        gogo.attack(player, gogo);
-        assertTrue(player.getIsDead());
+        gogo.attack(player, gogo);;
         player.moveX();
         assertEquals(point, player.getPoint());
     }
@@ -58,7 +52,6 @@ class PlayerTest {
     void healthDecreasesAfterAttack(){
         Bawser bawser = new Bawser();
         Player mario = new Player("Mario");
-        assertEquals(100, mario.getHealth());
         bawser.attack(mario, bawser);
         assertEquals(80, mario.getHealth());
     }
@@ -77,7 +70,6 @@ class PlayerTest {
         generateFullInventory(testPlayer);
         Bawser bawser = new Bawser();
         bawser.attack(testPlayer, bawser);
-        assertEquals(80, testPlayer.getHealth());
         testPlayer.useHealthPotion();
         assertEquals(100, testPlayer.getHealth());
     }
@@ -104,7 +96,6 @@ class PlayerTest {
         Player player = new Player("Hodor");
         generateFullInventory(player);
         player.setHealth(85);
-        assertEquals(85, player.getHealth());
         player.useHealthPotion();
         assertEquals(100, player.getHealth());
 
@@ -115,7 +106,6 @@ class PlayerTest {
         // assuming a health potion always increases current hp by 20
         Player testPlayer = new Player("Johnny");
         generateFullInventory(testPlayer);
-        assertEquals(100, testPlayer.getMaxHealth());
         testPlayer.useHealthPotion();
         assertEquals(100, testPlayer.getMaxHealth());
     }
@@ -157,7 +147,6 @@ class PlayerTest {
         Bawser bawser = new Bawser();
         Player mario = new Player("Mario");
         mario.setHealth(20);
-        assertFalse(mario.getIsDead());
         bawser.attack(mario, bawser);
         assertTrue(mario.getIsDead());
     }
@@ -185,7 +174,6 @@ class PlayerTest {
     @Test
     void moveX() {
         Player p = new Player("Playah");
-        assertEquals(0, p.getPoint().getX());
         p.moveX();
         assertEquals(1, p.getPoint().getX());
     }
@@ -194,7 +182,6 @@ class PlayerTest {
     @Test
     void moveY() {
         Player p = new Player("Playah");
-        assertEquals(0, p.getPoint().getX());
         p.moveY();
         assertEquals(1, p.getPoint().getY());
     }
@@ -222,11 +209,9 @@ class PlayerTest {
     }
 
     @Test
-    void dropWeapon(){
-
+    void unequipWeapon(){
         //the aim of this test is to check the dmg change in player
         //if the player drop the weapon it has equipped.
-
 
         Player p = new Player("Here's Jonny");
         Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
@@ -237,7 +222,6 @@ class PlayerTest {
         assertTrue(p.dropWeapon());
 
         assertEquals(20, p.getDamage());
-
     }
 
     void generateFullInventory (Player player) {
