@@ -2,7 +2,17 @@ import java.awt.*;
 
 public class Weapon extends EquippableItem {
     private int attackBonus;
-    private int range;
+
+
+    //fix rarity
+
+    private static final int CLASSIC=1;
+    public static final int RARE=2;
+    public static final int EPIC=4;
+
+    private int rarityType;
+
+
 
 
     public Weapon(String name, Point point,int attackBonus) {
@@ -10,9 +20,13 @@ public class Weapon extends EquippableItem {
         this.attackBonus=attackBonus;
     }
 
-    public Weapon(String name, Point point,int attackBonus,int ammo, int mag) {
-        super(name, point);
+
+
+    public Weapon(String name, int attackBonus,int typeOfRarity) {
+        super(name);
         this.attackBonus=attackBonus;
+        this.rarityType=typeOfRarity;
+
 
     }
 
@@ -22,15 +36,27 @@ public class Weapon extends EquippableItem {
 
 
     }
-
     public Weapon(){
 
     }
 
-public int getAttackBonus(){
+    public boolean isClassic(){
+        return rarityType == CLASSIC;
+    }
 
+    public boolean isRare(){
+        return rarityType == RARE;
+    }
+
+        public boolean isEpic(){
+        return rarityType== EPIC;
+        }
+
+
+    public int getAttackBonus(){
+//fix logic for rarity with attack bonus
         return attackBonus;
-}
+        }
 
 
 

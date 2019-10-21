@@ -38,20 +38,26 @@ class MonsterTest {
     }
 
 
-    // Monster Typ
 
+    // Monster Typ
     @Test
-    void monsterMoveX() {
+    void moveX() {
         Goomba babyGoomb = new Goomba();
         babyGoomb.moveX();
         assertEquals(2, babyGoomb.getPoint().getX());
     }
 
     @Test
-    void monsterMoveY() {
+    void moveY() {
         Goomba babyGoomb = new Goomba();
         babyGoomb.moveY();
         assertEquals(2, babyGoomb.getPoint().getY());
+    }
+
+    @Test
+    void checkCalculateXpIsCorrect () {
+        Goomba gombiboye = new Goomba();
+        assertEquals(10, gombiboye.calculateXp());
     }
 
 }

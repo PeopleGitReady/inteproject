@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
 
+import java.awt.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
@@ -13,14 +15,42 @@ class PlayerTest {
         assertEquals(5, player.getXp());
     }
 
+
     @Test
     void levelUpOnGainingRequiredXP () {
-
+        Player player = new Player("Babushka");
+        Goomba gomblord = new Goomba();
+        player.setXp(95);
+        gomblord.setHealth(5);
+        assertEquals(1, player.getLevel());
+        player.attack(gomblord, player);
+        assertTrue(gomblord.getIsDead());
+        assertEquals(2, player.getLevel());
     }
 
     @Test
     void maxHealthIncreasesOnLevelUp () {
+        Player player = new Player("Grrr");
+        Goomba gomblord = new Goomba();
+        player.setXp(95);
+        gomblord.setHealth(5);
+        assertEquals(1, player.getLevel());
+        player.attack(gomblord, player);
+        assertTrue(gomblord.getIsDead());
+        assertEquals(150, player.getMaxHealth());
+    }
 
+    @Test
+    void playerTriesToMoveWhenDead () {
+        Player player = new Player("JoeSchmoe");
+        Point point = new Point(0, 0);
+        assertEquals(point, player.getPoint());
+        player.setHealth(4);
+        Goomba gogo = new Goomba();
+        gogo.attack(player, gogo);
+        assertTrue(player.getIsDead());
+        player.moveX();
+        assertEquals(point, player.getPoint());
     }
 
 
@@ -152,6 +182,64 @@ class PlayerTest {
         assertEquals("SavageB",testCh.getName());
     }
 
+    @Test
+    void moveX() {
+        Player p = new Player("Playah");
+        assertEquals(0, p.getPoint().getX());
+        p.moveX();
+        assertEquals(1, p.getPoint().getX());
+    }
+
+
+    @Test
+    void moveY() {
+        Player p = new Player("Playah");
+        assertEquals(0, p.getPoint().getX());
+        p.moveY();
+        assertEquals(1, p.getPoint().getY());
+    }
+
+
+    @Test
+    void equipNonWeaponItem(){
+
+    }
+
+    @Test
+    void equipWeaponChangesStats(){
+        //The aim of this test is to check if a wepon has been picked
+        //and it chages the damange stats of the Player carrying it
+
+        Player p = new Player("Here's Jonny");
+        Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
+
+
+        p.pickUpLoot(valyrian_steel);
+        boolean testIsTrue = p.pickUpWeapon(valyrian_steel);
+        assertTrue(testIsTrue,"This shows player has accepted weapon");
+
+        assertEquals(53,p.getDamage());
+    }
+
+    @Test
+    void dropWeapon(){
+
+        //the aim of this test is to check the dmg change in player
+        //if the player drop the weapon it has equipped.
+
+
+        Player p = new Player("Here's Jonny");
+        Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
+
+        p.pickUpLoot(valyrian_steel);
+        p.pickUpWeapon(valyrian_steel);
+
+        assertTrue(p.dropWeapon());
+
+        assertEquals(20, p.getDamage());
+
+    }
+
     void generateFullInventory (Player player) {
 
         HealthPotion healthPotion1 = new HealthPotion();
@@ -178,67 +266,4 @@ class PlayerTest {
         player.pickUpLoot(weapon5);
 
     }
-
-    @Test
-    void playerMoveX() {
-        Player p = new Player("Playah");
-        assertEquals(0, p.getPoint().getX());
-        p.moveX();
-        assertEquals(1, p.getPoint().getX());
-    }
-
-
-    @Test
-    void playerMoveY() {
-        Player p = new Player("Playah");
-        assertEquals(0, p.getPoint().getX());
-        p.moveY();
-        assertEquals(1, p.getPoint().getY());
-    }
-
-
-
-
-    @Test
-    void playerEquipsNonWeaponItem(){
-
-    }
-
-    @Test
-    void playerEquipsWeaponAndChangesStats(){
-        //The aim of this test is to check if a wepon has been picked
-        //and it chages the damange stats of the Player carrying it
-
-        Player p = new Player("Here's Jonny");
-        Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
-
-
-        boolean testIsTrue = p.pickUpWeapon(valyrian_steel);
-        assertTrue(testIsTrue,"This shows player has accepted weapon");
-
-        assertEquals(53,p.getDamage());
-    }
-
-    @Test
-    void playerDropsWeapon(){
-        //the aim of this test is to check the dmg change in player
-        //And that the Arraylist that holds the weapon is empty!
-
-        Player p = new Player("Here's Jonny");
-        Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
-
-        p.pickUpWeapon(valyrian_steel);
-
-        boolean testIsTrue = p.pickUpWeapon(valyrian_steel);
-        assertTrue(testIsTrue);
-
-        //Now it  will checp after player drops a weapon
-
-
-
-    }
-
-
-
-
 }
