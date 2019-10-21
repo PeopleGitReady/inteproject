@@ -12,7 +12,7 @@ class PlayerTest {
         assertEquals(0, player.getXp());
         Goomba gombi = new Goomba();
         player.attack(gombi, player);
-        assertEquals(5, player.getXp());
+        assertEquals(10, player.getXp());
     }
 
 
@@ -215,7 +215,7 @@ class PlayerTest {
 
 
         p.pickUpLoot(valyrian_steel);
-        boolean testIsTrue = p.pickUpWeapon(valyrian_steel);
+        boolean testIsTrue = p.equipWeapon(valyrian_steel);
         assertTrue(testIsTrue,"This shows player has accepted weapon");
 
         assertEquals(53,p.getDamage());
@@ -232,9 +232,9 @@ class PlayerTest {
         Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
 
         p.pickUpLoot(valyrian_steel);
-        p.pickUpWeapon(valyrian_steel);
+        p.equipWeapon(valyrian_steel);
 
-        assertTrue(p.dropWeapon());
+        assertTrue(p.unequipWeapon());
 
         assertEquals(20, p.getDamage());
 
