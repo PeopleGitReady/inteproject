@@ -171,5 +171,4 @@ class MonsterTest {
         mo.attack(baws, mo);
         assertEquals(100, mo.getHealth());
     }
-
 }
