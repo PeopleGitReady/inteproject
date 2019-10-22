@@ -80,12 +80,6 @@ class MonsterTest {
         assertEquals(expectedLocation, babyGoomba.getLocation());
     }
 
-
-    @Test
-    void moveYOutOfBounds () {
-
-    }
-
     @Test
     void checkCalculateXpIsCorrect () {
         Goomba gombiboye = new Goomba();

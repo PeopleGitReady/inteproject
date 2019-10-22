@@ -272,8 +272,18 @@ class PlayerTest {
         p.equipWeapon(valyrian_steel);
         p.unequipWeapon();
 
-
         assertEquals(20, p.getDamage());
+    }
+
+    @Test
+    void cannotUnequipWeaponWithFullInventory () {
+        Player hoboChomo = new Player("Chomo");
+        Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
+        hoboChomo.pickUpLoot(valyrian_steel);
+        hoboChomo.equipWeapon(valyrian_steel);
+        generateFullInventory(hoboChomo);
+        hoboChomo.unequipWeapon();
+        assertTrue(hoboChomo.getWeaponSlot().contains(valyrian_steel));
     }
 
     @Test
@@ -300,14 +310,10 @@ class PlayerTest {
         p.pickUpLoot(valyrian_steel);
         p.equipWeapon(valyrian_steel);
 
-
         Bawser bawser = new Bawser();
         p.attack(bawser,p);
         assertEquals(47,bawser.getHealth());
-
     }
-
-
 
     private void generateFullInventory (Player player) {
 

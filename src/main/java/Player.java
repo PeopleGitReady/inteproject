@@ -6,7 +6,7 @@ public class Player extends Character {
     private int xp = 0;
     private int maxHealth = 100;
     private ArrayList<Item> inventory = new ArrayList<Item>();
-    private ArrayList<Weapon> weaponsSlot= new ArrayList<>();
+    private ArrayList<Weapon> weaponSlot= new ArrayList<>();
 
     public Player(String name){
         super(name, 100, 20, 1);
@@ -15,6 +15,8 @@ public class Player extends Character {
     public ArrayList<Item> getInventory() {
         return inventory;
     }
+
+    public ArrayList<Weapon> getWeaponSlot() { return weaponSlot;  }
 
     public int getMaxHealth () { return maxHealth; }
 
@@ -98,19 +100,19 @@ public class Player extends Character {
 
         if(inventory.contains(weapon)){
 
-            if(!weaponsSlot.isEmpty()){
+            if(!weaponSlot.isEmpty()){
 
-                Weapon tempWeapon = weaponsSlot.get(0);
+                Weapon tempWeapon = weaponSlot.get(0);
                 inventory.add(tempWeapon);
-                weaponsSlot.clear();
+                weaponSlot.clear();
                 setDamage(20);
-                weaponsSlot.add(weapon);
+                weaponSlot.add(weapon);
 
                 setDamage(getDamage() + weapon.getAttackBonus());
                 inventory.remove(weapon);
 
             } else {
-                weaponsSlot.add(weapon);
+                weaponSlot.add(weapon);
                 setDamage(getDamage() + weapon.getAttackBonus());
                 inventory.remove(weapon);
             }
@@ -119,9 +121,9 @@ public class Player extends Character {
 
     public void unequipWeapon(){
 
-        if(! weaponsSlot.isEmpty() && getInventory().size() < 10 ) {
-            Weapon w = weaponsSlot.get(0);
-            weaponsSlot.clear();
+        if(! weaponSlot.isEmpty() && getInventory().size() < 10 ) {
+            Weapon w = weaponSlot.get(0);
+            weaponSlot.clear();
             inventory.add(w);
             setDamage(getDamage() - w.getAttackBonus());
         } else {
