@@ -14,6 +14,7 @@ public abstract class Character extends Point {
         this.health = health;
         this.damage = damage;
         this.level = level;
+        this.direction = Direction.RIGHT;
 
         if (name == null) {
             throw new NullPointerException("Parameter Type cannot be null");
@@ -66,6 +67,10 @@ public abstract class Character extends Point {
     public void setDirection(Direction direction){
         this.direction = direction;
     }
+
+    public abstract void moveX(int i);
+    public abstract void moveY(int i);
+
     //calculate health
 
     public void attack(Character c, Character attacker){

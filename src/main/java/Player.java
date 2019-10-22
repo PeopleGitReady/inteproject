@@ -26,21 +26,13 @@ public class Player extends Character {
 
     public void setMaxHealth(int maxHealth) { this.maxHealth = maxHealth; }
 
-    public void moveRight() {
+    public void moveX(int i) {
         if (! getIsDead())
-            super.setLocation(super.getX() + 1, super.getY());
+            super.setLocation(super.getX() + i, super.getY());
     }
-    public void moveLeft() {
+    public void moveY(int i) {
         if (! getIsDead())
-            super.setLocation(super.getX() - 1, super.getY());
-    }
-    public void moveUp() {
-        if (! getIsDead())
-            super.setLocation(super.getX() , super.getY() + 1);
-    }
-    public void moveDown() {
-        if (! getIsDead())
-            super.setLocation(super.getX() , super.getY() + 1);
+            super.setLocation(super.getX() , super.getY() + i);
     }
 
     public void pickUpLoot(Item item) {

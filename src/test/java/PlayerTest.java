@@ -43,7 +43,7 @@ class PlayerTest {
         player.setHealth(4);
         Goomba gogo = new Goomba();
         gogo.attack(player, gogo);;
-        player.moveRight();
+        player.moveX(1);
         assertEquals(point, player.getLocation());
     }
 
@@ -175,7 +175,7 @@ class PlayerTest {
         Player p = new Player("Playah");
         Point expectedLocation = new Point(51, 50);
         p.setLocation(50, 50);
-        p.moveRight();
+        p.moveX(1);
         assertEquals(expectedLocation, p.getLocation());
     }
 
@@ -184,7 +184,7 @@ class PlayerTest {
         Player p = new Player("Playah");
         Point expectedLocation = new Point(49, 50);
         p.setLocation(50, 50);
-        p.moveLeft();
+        p.moveX(-1);
         assertEquals(expectedLocation, p.getLocation());
     }
 
@@ -193,7 +193,7 @@ class PlayerTest {
         Player p = new Player("Playah");
         Point expectedLocation = new Point(50, 51);
         p.setLocation(50, 50);
-        p.moveUp();
+        p.moveY(1);
         assertEquals(expectedLocation, p.getLocation());
     }
 
@@ -202,7 +202,7 @@ class PlayerTest {
         Player p = new Player("Playah");
         Point expectedLocation = new Point(50, 49);
         p.setLocation(50, 50);
-        p.moveDown();
+        p.moveX(-1);
         assertEquals(expectedLocation, p.getLocation());
     }
 
@@ -212,7 +212,7 @@ class PlayerTest {
         Player p = new Player("Playah");
         Point expectedLocation = new Point(100, 50);
         p.setLocation(100, 50);
-        p.moveRight();
+        p.moveX(1);
         assertEquals(expectedLocation, p.getLocation());
     }
 
@@ -222,7 +222,7 @@ class PlayerTest {
         Player p = new Player("Playah");
         Point expectedLocation = new Point(0, 50);
         p.setLocation(0, 50);
-        p.moveLeft();
+        p.moveX(-1);
         assertEquals(expectedLocation, p.getLocation());
     }
 
@@ -232,7 +232,7 @@ class PlayerTest {
         Player p = new Player("Playah");
         Point expectedLocation = new Point(54, 100);
         p.setLocation(54, 100);
-        p.moveUp();
+        p.moveY(1);
         assertEquals(expectedLocation, p.getLocation());
     }
 
@@ -242,7 +242,7 @@ class PlayerTest {
         Player p = new Player("Playah");
         Point expectedLocation = new Point(64, 0);
         p.setLocation(64, 0);
-        p.moveDown();
+        p.moveY(-1);
         assertEquals(expectedLocation, p.getLocation());
     }
 
