@@ -46,7 +46,7 @@ public class Weapon extends EquippableItem {
 
 
     public int getAttackBonus(){
-//fix logic for rarity with attack bonus
+        //fix logic for rarity with attack bonus
         if(isClassic() == true){
             return attackBonus+CLASSIC;
         }
