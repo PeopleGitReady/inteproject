@@ -272,6 +272,7 @@ class PlayerTest {
         p.equipWeapon(valyrian_steel);
         p.unequipWeapon();
 
+
         assertEquals(20, p.getDamage());
     }
 
@@ -310,10 +311,14 @@ class PlayerTest {
         p.pickUpLoot(valyrian_steel);
         p.equipWeapon(valyrian_steel);
 
+
         Bawser bawser = new Bawser();
         p.attack(bawser,p);
         assertEquals(47,bawser.getHealth());
+
     }
+
+
 
     private void generateFullInventory (Player player) {
 
