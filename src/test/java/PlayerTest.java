@@ -207,13 +207,43 @@ class PlayerTest {
     }
 
     @Test
-    void moveXOutOfBounds () {
+    void moveXOutOfBoundsRight () {
         // player should not be able to move outside of the map boundary
+        Player p = new Player("Playah");
+        Point expectedLocation = new Point(100, 50);
+        p.setLocation(100, 50);
+        p.moveLeft();
+        assertEquals(expectedLocation, p.getLocation());
     }
 
     @Test
-    void moveYOutOfBounds () {
+    void moveXOutOfBoundsLeft () {
+        // player should not be able to move outside of the map boundary
+        Player p = new Player("Playah");
+        Point expectedLocation = new Point(0, 50);
+        p.setLocation(0, 50);
+        p.moveLeft();
+        assertEquals(expectedLocation, p.getLocation());
+    }
 
+    @Test
+    void moveYOutOfBoundsUp () {
+        // player should not be able to move outside of the map boundary
+        Player p = new Player("Playah");
+        Point expectedLocation = new Point(54, 100);
+        p.setLocation(54, 100);
+        p.moveLeft();
+        assertEquals(expectedLocation, p.getLocation());
+    }
+
+    @Test
+    void moveYOutOfBoundsDown () {
+        // player should not be able to move outside of the map boundary
+        Player p = new Player("Playah");
+        Point expectedLocation = new Point(64, 0);
+        p.setLocation(64, 0);
+        p.moveLeft();
+        assertEquals(expectedLocation, p.getLocation());
     }
 
     @Test

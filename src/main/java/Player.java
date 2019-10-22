@@ -8,7 +8,6 @@ public class Player extends Character {
     private ArrayList<Item> inventory = new ArrayList<Item>();
     private ArrayList<Weapon> weaponsSlot= new ArrayList<>();
 
-
     public Player(String name){
         super(name, 100, 20, 1);
     }
