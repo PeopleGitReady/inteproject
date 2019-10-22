@@ -272,7 +272,6 @@ class PlayerTest {
         p.equipWeapon(valyrian_steel);
         p.unequipWeapon();
 
-
         assertEquals(20, p.getDamage());
     }
 
@@ -315,10 +314,55 @@ class PlayerTest {
         Bawser bawser = new Bawser();
         p.attack(bawser,p);
         assertEquals(47,bawser.getHealth());
-
     }
 
+    @Test
+    void attackIfInRangeX() {
+        Player mo = new Player("Mo");
+        mo.setLocation(50, 100);
 
+        Bawser bobo = new Bawser();
+        bobo.setLocation(51, 100);
+
+        mo.attack(bobo, mo);
+        assertEquals(80, bobo.getHealth());
+    }
+
+    @Test
+    void attackIfInRangeY() {
+        Player mo = new Player("Mo");
+        mo.setLocation(50, 50);
+
+        Bawser bobo = new Bawser();
+        bobo.setLocation(50, 51);
+
+        mo.attack(bobo, mo);
+        assertEquals(80, bobo.getHealth());
+    }
+
+    @Test
+    void attackOutOfRangeX() {
+        Player mobo = new Player("Mo");
+        mobo.setLocation(50, 100);
+
+        Bawser baws = new Bawser();
+        baws.setLocation(55, 100);
+
+        mobo.attack(baws, mobo);
+        assertEquals(100, baws.getHealth());
+    }
+
+    @Test
+    void attackOutOfRangeY() {
+        Player mobo = new Player("Mo");
+        mobo.setLocation(50, 50);
+
+        Bawser baws = new Bawser();
+        baws.setLocation(50, 52);
+
+        mobo.attack(baws, mobo);
+        assertEquals(100, baws.getHealth());
+    }
 
     private void generateFullInventory (Player player) {
 
