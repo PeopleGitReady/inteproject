@@ -1,8 +1,12 @@
 import org.junit.jupiter.api.Test;
 
+import java.awt.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class MonsterTest {
+
+    Map map = new Map(0, 0, 100, 100);
 
     // Test klass för drops av item
 /*
@@ -41,18 +45,41 @@ class MonsterTest {
     }
 
     @Test
+    void moveLeft() {
+        Goomba babyGoomba = new Goomba();
+        Point expectedLocation = new Point(50, 50);
+        babyGoomba.setLocation(51, 51);
+        babyGoomba.moveLeft();
+        assertEquals(expectedLocation, babyGoomba.getLocation());
+    }
+
+    @Test
     void moveRight() {
-        Goomba babyGoomb = new Goomba();
-        babyGoomb.moveRight();
-        assertEquals(2, babyGoomb.getX());
+        Goomba babyGoomba = new Goomba();
+        Point expectedLocation = new Point(52, 51);
+        babyGoomba.setLocation(51, 51);
+        babyGoomba.moveRight();
+        assertEquals(expectedLocation, babyGoomba.getLocation());
     }
 
     @Test
     void moveUp() {
-        Goomba babyGoomb = new Goomba();
-        babyGoomb.moveUp();
-        assertEquals(2, babyGoomb.getY());
+        Goomba babyGoomba = new Goomba();
+        Point expectedLocation = new Point(51, 52);
+        babyGoomba.setLocation(51, 51);
+        babyGoomba.moveUp();
+        assertEquals(expectedLocation, babyGoomba.getLocation());
     }
+
+    @Test
+    void moveDown() {
+        Goomba babyGoomba = new Goomba();
+        Point expectedLocation = new Point(51, 50);
+        babyGoomba.setLocation(51, 51);
+        babyGoomba.moveDown();
+        assertEquals(expectedLocation, babyGoomba.getLocation());
+    }
+
 
     @Test
     void moveYOutOfBounds () {
