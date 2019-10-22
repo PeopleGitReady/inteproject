@@ -61,5 +61,11 @@ public class Weapon extends EquippableItem {
 
     }
 
-
+    @Override
+    public String toString() {
+        return "Weapon{" +
+                "attackBonus=" + attackBonus +
+                ", rarityType=" + getAttackBonus() +
+                '}';
+    }
 }

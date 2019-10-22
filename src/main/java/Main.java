@@ -8,5 +8,7 @@ public class Main {
 
         System.out.println(w.toString());
 
+        Weapon z = new Weapon("hmmm",33,Weapon.RARE);
+        System.out.println(z.toString());
     }
 }

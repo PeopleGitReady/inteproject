@@ -104,7 +104,9 @@ public class Player extends Character {
                 Weapon tempWeapon = weaponsSlot.get(0);
                 inventory.add(tempWeapon);
                 weaponsSlot.clear();
+                setDamage(20);
                 weaponsSlot.add(weapon);
+
                 setDamage(getDamage() + weapon.getAttackBonus());
                 inventory.remove(weapon);
 
