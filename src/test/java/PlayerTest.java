@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
 
+    Map map = new Map(0, 100, 100, 100);
+
     @Test
     void gainXPOnSlayingMob () {
         Player player = new Player("Grogg");
@@ -14,14 +16,13 @@ class PlayerTest {
         assertEquals(10, player.getXp());
     }
 
-
     @Test
     void levelUpOnGainingRequiredXP () {
         Player player = new Player("Babushka");
-        Goomba gomblord = new Goomba();
+        Goomba goomblord = new Goomba();
         player.setXp(95);
-        gomblord.setHealth(5);
-        player.attack(gomblord, player);
+        goomblord.setHealth(5);
+        player.attack(goomblord, player);
         assertEquals(2, player.getLevel());
     }
 
@@ -172,15 +173,37 @@ class PlayerTest {
     @Test
     void moveRight() {
         Player p = new Player("Playah");
+        Point expectedLocation = new Point(51, 50);
+        p.setLocation(50, 50);
         p.moveRight();
-        assertEquals(1, p.getX());
+        assertEquals(expectedLocation, p.getLocation());
+    }
+
+    @Test
+    void moveLeft() {
+        Player p = new Player("Playah");
+        Point expectedLocation = new Point(49, 50);
+        p.setLocation(50, 50);
+        p.moveLeft();
+        assertEquals(expectedLocation, p.getLocation());
     }
 
     @Test
     void moveUp() {
         Player p = new Player("Playah");
+        Point expectedLocation = new Point(50, 51);
+        p.setLocation(50, 50);
         p.moveUp();
-        assertEquals(1, p.getY());
+        assertEquals(expectedLocation, p.getLocation());
+    }
+
+    @Test
+    void moveDown() {
+        Player p = new Player("Playah");
+        Point expectedLocation = new Point(50, 49);
+        p.setLocation(50, 50);
+        p.moveDown();
+        assertEquals(expectedLocation, p.getLocation());
     }
 
     @Test

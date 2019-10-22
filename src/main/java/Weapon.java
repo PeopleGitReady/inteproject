@@ -57,7 +57,6 @@ public class Weapon extends EquippableItem {
         if(isEpic() == true){
             return attackBonus+EPIC;
         }
-
         return attackBonus;
 
     }
