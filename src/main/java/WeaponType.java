@@ -4,19 +4,19 @@ public enum WeaponType {
     RARE(2, "silver"),
     EPIC(4, "epic");
 
-    private final int addedDamageValue;
-    private final String rarity;
+    private final int ADDED_DAMAGE_VALUE;
+    private final String RARITY;
 
     WeaponType(int addedDamageValue, String rarity) {
-        this.addedDamageValue = addedDamageValue;
-        this.rarity = rarity;
+        this.ADDED_DAMAGE_VALUE = addedDamageValue;
+        this.RARITY = rarity;
     }
 
     public double getAddedDamageValue() {
-        return addedDamageValue;
+        return ADDED_DAMAGE_VALUE;
     }
     public String getRarity() {
-        return rarity;
+        return RARITY;
     }
 
 }

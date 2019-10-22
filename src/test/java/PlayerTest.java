@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PlayerTest {
 
     Map map = new Map(0, 100, 100, 100);
+    Weapon skullCrusher = new Weapon("Valyrian Steel",33, WeaponType.EPIC);
 
     @Test
     void gainXPOnSlayingMob () {
