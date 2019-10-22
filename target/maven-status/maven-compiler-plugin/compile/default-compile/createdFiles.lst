@@ -1,0 +1,13 @@
+Map.class
+Consumable.class
+Bawser.class
+Player.class
+EquippableItem.class
+Character.class
+Item.class
+HealthPotion.class
+Main.class
+Monster.class
+Goomba.class
+Weapon.class
+Armor.class
