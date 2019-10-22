@@ -242,22 +242,18 @@ class PlayerTest {
         p.equipWeapon(valyrian_steel);
         p.unequipWeapon();
 
-
         assertEquals(20, p.getDamage());
     }
 
     @Test
-    void changeWeaponFromPreviousWeapon(){
+    void equippingNewWeaponUpdatesDamage(){
         Player p = new Player("Here's Jonny");
         Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
-
         p.pickUpLoot(valyrian_steel);
         p.equipWeapon(valyrian_steel);
-
         Weapon justASwerd = new Weapon("KewlSword",55);
         p.pickUpLoot(justASwerd);
         p.equipWeapon(justASwerd);
-
         assertEquals(75,p.getDamage());
 
     }
@@ -276,7 +272,6 @@ class PlayerTest {
         assertEquals(47,bawser.getHealth());
 
     }
-
 
 
     private void generateFullInventory (Player player) {
