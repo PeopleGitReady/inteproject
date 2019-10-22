@@ -7,7 +7,7 @@ public abstract class Character extends Point {
     private int damage;
     private int level;
     private boolean isDead;
-
+    private Direction direction;
 
     public Character(String name, int health, int damage, int level) {
         this.name = name;
@@ -60,6 +60,12 @@ public abstract class Character extends Point {
         this.isDead = isDead;
     }
 
+    public Direction getDirection(){
+        return direction;
+    }
+    public void setDirection(Direction direction){
+        this.direction = direction;
+    }
     //calculate health
 
     public void attack(Character c, Character attacker){
