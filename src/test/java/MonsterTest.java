@@ -82,14 +82,94 @@ class MonsterTest {
 
 
     @Test
-    void moveYOutOfBounds () {
+    void moveXOutOfBoundsRight() {
+        Bawser bawser = new Bawser();
+        Point expectedLocation = new Point(100, 50);
+        bawser.setLocation(100, 50);
+        bawser.moveRight();
+        assertEquals(expectedLocation, bawser.getLocation());
+    }
 
+    @Test
+    void moveXOutOfBoundsLeft() {
+        Bawser bawser = new Bawser();
+        Point expectedLocation = new Point(100, 50);
+        bawser.setLocation(100, 50);
+        bawser.moveLeft();
+        assertEquals(expectedLocation, bawser.getLocation());
+    }
+
+
+    @Test
+    void moveYOutOfBoundsUp() {
+        Bawser bawser = new Bawser();
+        Point expectedLocation = new Point(55, 100);
+        bawser.setLocation(55, 100);
+        bawser.moveUp();
+        assertEquals(expectedLocation, bawser.getLocation());
+    }
+
+    @Test
+    void moveYOutOfBoundsDown() {
+        Bawser bawser = new Bawser();
+        Point expectedLocation = new Point(65, 0);
+        bawser.setLocation(65, 0);
+        bawser.moveDown();
+        assertEquals(expectedLocation, bawser.getLocation());
     }
 
     @Test
     void checkCalculateXpIsCorrect () {
         Goomba gombiboye = new Goomba();
         assertEquals(10, gombiboye.calculateXp());
+    }
+
+    @Test
+    void attackIfInRangeX() {
+        Player mo = new Player("Mo");
+        mo.setLocation(50, 100);
+
+        Bawser baws = new Bawser();
+        baws.setLocation(51, 100);
+
+        mo.attack(mo, baws);
+        assertEquals(80, mo.getHealth());
+    }
+
+    @Test
+    void attackIfInRangeY() {
+        Player mo = new Player("Mo");
+        mo.setLocation(50, 100);
+
+        Bawser baws = new Bawser();
+        baws.setLocation(50, 99);
+
+        mo.attack(mo, baws);
+        assertEquals(80, mo.getHealth());
+    }
+
+    @Test
+    void attackOutOfRangeX() {
+        Player mo = new Player("Mo");
+        mo.setLocation(50, 100);
+
+        Bawser baws = new Bawser();
+        baws.setLocation(55, 100);
+
+        mo.attack(baws, mo);
+        assertEquals(80, mo.getHealth());
+    }
+
+    @Test
+    void attackOutOfRangeY() {
+        Player mo = new Player("Mo");
+        mo.setLocation(50, 50);
+
+        Bawser baws = new Bawser();
+        baws.setLocation(55, 52);
+
+        mo.attack(baws, mo);
+        assertEquals(100, mo.getHealth());
     }
 
 }
