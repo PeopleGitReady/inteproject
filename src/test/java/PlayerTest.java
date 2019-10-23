@@ -299,7 +299,7 @@ class PlayerTest {
         p.pickUpLoot(justASwerd);
         p.equipWeapon(justASwerd);
 
-        assertEquals(79,p.getDamage());
+        assertEquals(77,p.getDamage());
 
     }
 
