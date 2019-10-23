@@ -100,7 +100,7 @@ class MapTest {
     void moveMonsterLeft() {
         Goomba babyGoomba = new Goomba();
         Point expectedLocation = new Point(50, 50);
-        babyGoomba.setLocation(51, 51);
+        babyGoomba.setLocation(51, 50);
         babyGoomba.setDirection(Direction.LEFT);
         map.moveCharacter(babyGoomba);
         assertEquals(expectedLocation, babyGoomba.getLocation());
@@ -168,7 +168,7 @@ class MapTest {
         Bawser bawser = new Bawser();
         Point expectedLocation = new Point(65, 0);
         bawser.setLocation(65, 0);
-        bawser.setDirection(Direction.LEFT);
+        bawser.setDirection(Direction.DOWN);
         map.moveCharacter(bawser);
         assertEquals(expectedLocation, bawser.getLocation());
     }

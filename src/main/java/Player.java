@@ -26,6 +26,7 @@ public class Player extends Character {
 
     public void setMaxHealth(int maxHealth) { this.maxHealth = maxHealth; }
 
+    //samma metod fiins på map klassen, vi kan kanske ta bort den
     public void moveX(int i) {
         if (! getIsDead())
             super.setLocation(super.getX() + i, super.getY());

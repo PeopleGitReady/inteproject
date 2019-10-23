@@ -25,6 +25,7 @@ public class Map extends Rectangle {
             }
         }
     }
+
     public void moveY(Character c, int i) {
         Point newPos = new Point((int) c.getX(), (int) c.getY() + i);
         if (!super.contains(newPos)) {
@@ -33,6 +34,7 @@ public class Map extends Rectangle {
             c.setLocation(newPos);
         }
     }
+
     public void moveX(Character c, int i) {
         Point newPos = new Point((int) c.getX() + i, (int) c.getY());
         if (!super.contains(newPos)) {
