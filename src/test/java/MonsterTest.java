@@ -23,7 +23,11 @@ class MonsterTest {
     @Test
     void healthDecreasesAfterAttack(){
         Bawser bawser = new Bawser();
+        bawser.setLocation(50, 50);
+
         Player mario = new Player("Mario");
+        mario.setLocation(51, 50);
+
         mario.attack(bawser, mario);
         assertEquals(80, bawser.getHealth());
     }
@@ -31,7 +35,11 @@ class MonsterTest {
     @Test
     void monsterDiesAfterAttack() {
         Goomba goomba = new Goomba();
+        goomba.setLocation(51, 50);
+
         Player mario = new Player("Mario");
+        mario.setLocation(51, 51);
+
         mario.attack(goomba, mario);
         assertTrue(goomba.getIsDead());
     }
@@ -39,7 +47,11 @@ class MonsterTest {
     @Test
     void monsterAttacksPlayer() {
         Goomba goomba = new Goomba();
+        goomba.setLocation(52, 50);
+
         Player mario = new Player("Mario");
+        mario.setLocation(53, 52);
+
         goomba.attack(mario, goomba);
         assertEquals(95, mario.getHealth());
     }
