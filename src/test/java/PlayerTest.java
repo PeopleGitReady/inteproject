@@ -43,7 +43,7 @@ class PlayerTest {
         player.setHealth(4);
         Goomba gogo = new Goomba();
         gogo.attack(player, gogo);;
-        player.moveX(1);
+        map.moveCharacter(player);
         assertEquals(point, player.getLocation());
     }
 
