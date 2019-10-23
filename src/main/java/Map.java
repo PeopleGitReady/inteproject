@@ -5,7 +5,7 @@ public class Map extends Rectangle {
         super(x, y, width, height);
     }
 
-    public void handleMovement(Character c) {
+    public void moveCharacter(Character c) {
         if (!super.contains(c)) {
             return;
         } else {
