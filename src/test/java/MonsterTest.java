@@ -79,23 +79,21 @@ class MonsterTest {
         babyGoomba.moveY(-1);
         assertEquals(expectedLocation, babyGoomba.getLocation());
     }
-
-
     @Test
     void moveXOutOfBoundsRight() {
         Bawser bawser = new Bawser();
-        Point expectedLocation = new Point(100, 50);
-        bawser.setLocation(100, 50);
-        bawser.moveX(1);
+        Point expectedLocation = new Point(99, 50);
+        bawser.setLocation(99, 50);
+        map.handleMovement(bawser);
         assertEquals(expectedLocation, bawser.getLocation());
     }
-
     @Test
     void moveXOutOfBoundsLeft() {
         Bawser bawser = new Bawser();
-        Point expectedLocation = new Point(100, 50);
-        bawser.setLocation(100, 50);
-        bawser.moveX(-1);
+        Point expectedLocation = new Point(0, 50);
+        bawser.setLocation(0, 50);
+        bawser.setDirection(Direction.LEFT);
+        map.handleMovement(bawser);
         assertEquals(expectedLocation, bawser.getLocation());
     }
 
@@ -106,7 +104,6 @@ class MonsterTest {
         Point expectedLocation = new Point(55, 99);
         bawser.setLocation(55, 99);
         bawser.setDirection(Direction.UP);
-        map.add(bawser);
         map.handleMovement(bawser);
         assertEquals(expectedLocation, bawser.getLocation());
     }
@@ -116,7 +113,8 @@ class MonsterTest {
         Bawser bawser = new Bawser();
         Point expectedLocation = new Point(65, 0);
         bawser.setLocation(65, 0);
-        bawser.moveY(-1);
+        bawser.setDirection(Direction.LEFT);
+        map.handleMovement(bawser);
         assertEquals(expectedLocation, bawser.getLocation());
     }
 

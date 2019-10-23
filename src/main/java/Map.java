@@ -14,20 +14,27 @@ public class Map extends Rectangle {
                     moveY(c, 1);
                     break;
                 case DOWN:
-                    c.moveY(-1);
+                    moveY(c, -1);
                     break;
                 case RIGHT:
-                    c.moveX(1);
+                    moveX(c, 1);
                     break;
                 case LEFT:
-                    c.moveX(-1);
+                    moveX(c, -1);
                     break;
             }
         }
     }
-
     public void moveY(Character c, int i) {
         Point newPos = new Point((int) c.getX(), (int) c.getY() + i);
+        if (!super.contains(newPos)) {
+            return;
+        } else {
+            c.setLocation(newPos);
+        }
+    }
+    public void moveX(Character c, int i) {
+        Point newPos = new Point((int) c.getX() + i, (int) c.getY());
         if (!super.contains(newPos)) {
             return;
         } else {
