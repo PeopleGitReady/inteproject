@@ -86,7 +86,7 @@ public abstract class Character extends Point {
             Player p = (Player) c;
             Monster m = (Monster) attacker;
             // Kan förenklas med en metod som direkt kollar så att skillnaden i y eller x är 1
-            if(Math.abs(p.getX() - m.getX()) == 1 && Math.abs(p.getY() - m.getY()) == 1) {
+            if(Math.abs(p.getX() - m.getX())  <= 1 && Math.abs(p.getY() - m.getY())  <= 1) {
                 p.takeDamage(damage);
             }
         }
@@ -94,7 +94,7 @@ public abstract class Character extends Point {
         if (c instanceof Monster) {
             Monster m = (Monster) c;
             Player a = (Player) attacker;
-            if(Math.abs(m.getX() - a.getX()) == 1 && Math.abs(m.getY() - a.getY()) == 1) {
+            if(Math.abs(m.getX() - a.getX()) <= 1 && Math.abs(m.getY() - a.getY()) <= 1) {
                 m.takeDamage(damage);
                 if (m.getIsDead()) {
                     a.gainXp(m);
