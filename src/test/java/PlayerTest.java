@@ -256,7 +256,7 @@ class PlayerTest {
     void equipWeaponChangesDamage(){
 
         Player p = new Player("Here's Jonny");
-        Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
+        Weapon valyrian_steel = new Weapon("Valyrian Steel",33,WeaponType.COMMON);
 
         p.pickUpLoot(valyrian_steel);
         p.equipWeapon(valyrian_steel);
@@ -267,7 +267,7 @@ class PlayerTest {
     void unequipWeaponChangesDamage(){
 
         Player p = new Player("Here's Jonny");
-        Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
+        Weapon valyrian_steel = new Weapon("Valyrian Steel",33,WeaponType.COMMON);
 
         p.pickUpLoot(valyrian_steel);
         p.equipWeapon(valyrian_steel);
@@ -279,7 +279,7 @@ class PlayerTest {
     @Test
     void cannotUnequipWeaponWithFullInventory () {
         Player hoboChomo = new Player("Chomo");
-        Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
+        Weapon valyrian_steel = new Weapon("Valyrian Steel",33,WeaponType.COMMON);
         hoboChomo.pickUpLoot(valyrian_steel);
         hoboChomo.equipWeapon(valyrian_steel);
         generateFullInventory(hoboChomo);
@@ -290,23 +290,23 @@ class PlayerTest {
     @Test
     void changeWeaponFromPreviousWeapon(){
         Player p = new Player("Here's Jonny");
-        Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
+        Weapon valyrian_steel = new Weapon("Valyrian Steel",33,WeaponType.COMMON);
 
         p.pickUpLoot(valyrian_steel);
         p.equipWeapon(valyrian_steel);
 
-        Weapon justASwerd = new Weapon("KewlSword",55);
+        Weapon justASwerd = new Weapon("KewlSword",55,WeaponType.RARE);
         p.pickUpLoot(justASwerd);
         p.equipWeapon(justASwerd);
 
-        assertEquals(75,p.getDamage());
+        assertEquals(79,p.getDamage());
 
     }
 
     @Test
     void checkDamageIsCorrectWhenPlayerAttacks(){
         Player p = new Player("Here's Jonny");
-        Weapon valyrian_steel = new Weapon("Valyrian Steel",33);
+        Weapon valyrian_steel = new Weapon("Valyrian Steel",33,WeaponType.COMMON);
 
         p.pickUpLoot(valyrian_steel);
         p.equipWeapon(valyrian_steel);

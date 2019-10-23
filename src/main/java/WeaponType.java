@@ -1,7 +1,7 @@
 public enum WeaponType {
 
     COMMON(0, "common"),
-    RARE(2, "silver"),
+    RARE(2, "RARE"),
     EPIC(4, "epic");
 
     private final int ADDED_DAMAGE_VALUE;
@@ -12,11 +12,11 @@ public enum WeaponType {
         this.RARITY = rarity;
     }
 
-    public double getAddedDamageValue() {
+    public int getAddedDamageValue() {
         return ADDED_DAMAGE_VALUE;
     }
-    public String getRarity() {
-        return RARITY;
-    }
+
+
+
 
 }

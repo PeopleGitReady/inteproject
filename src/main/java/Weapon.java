@@ -17,24 +17,15 @@ public class Weapon extends EquippableItem {
         this.rarity = rarity;
     }
 
-    public Weapon(String name, int attackBonus) {
-        super(name);
-        this.attackBonus=attackBonus;
-    }
+
 
     public Weapon(){
 
     }
 
     public int getAttackBonus(){
-        return attackBonus + (int)rarity.getAddedDamageValue();
+        return attackBonus + rarity.getAddedDamageValue();
     }
 
-    @Override
-    public String toString() {
-        return "Weapon{" +
-                "attackBonus=" + attackBonus +
-                ", rarityType=" + getAttackBonus() +
-                '}';
-    }
+
 }
