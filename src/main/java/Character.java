@@ -62,6 +62,7 @@ public abstract class Character extends Point {
 
     //calculate health
 
+    /*
     public void attack(Character c, Character attacker){
         if (c instanceof Player) {
             Player p = (Player) c;
@@ -74,6 +75,30 @@ public abstract class Character extends Point {
             m.takeDamage(damage);
             if (m.getIsDead()) {
                 a.gainXp(m);
+            }
+        }
+    }
+
+     */
+
+    public void attack(Character c, Character attacker){
+        if (c instanceof Player) {
+            Player p = (Player) c;
+            Monster m = (Monster) attacker;
+            // Kan förenklas med en metod som direkt kollar så att skillnaden i y eller x är 1
+            if(p.getX() - m.getX() == 1 || m.getX() - p.getX() == 1 || p.getY() - m.getY() == 1 || m.getY() - p.getY() == 1) {
+                p.takeDamage(damage);
+            }
+        }
+
+        if (c instanceof Monster) {
+            Monster m = (Monster) c;
+            Player a = (Player) attacker;
+            if(m.getX() - a.getX() == 1 || a.getX() - m.getX() == 1 || m.getY() - a.getY() == 1 || a.getY() - m.getY() == 1) {
+                m.takeDamage(damage);
+                if (m.getIsDead()) {
+                    a.gainXp(m);
+                }
             }
         }
     }

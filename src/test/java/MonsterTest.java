@@ -157,7 +157,7 @@ class MonsterTest {
         baws.setLocation(55, 100);
 
         mo.attack(baws, mo);
-        assertEquals(80, mo.getHealth());
+        assertEquals(100, mo.getHealth());
     }
 
     @Test
