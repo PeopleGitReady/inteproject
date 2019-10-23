@@ -72,7 +72,7 @@ public class Player extends Character {
                HealthPotion healthPotion = (HealthPotion) item;
                 int increase = healthPotion.getHealthPointsGiven();
 
-                if (getHealth() + increase >= maxHealth) {
+                if (getHealth() + increase > maxHealth) {
                     setHealth(maxHealth);
                 }
                 else {
