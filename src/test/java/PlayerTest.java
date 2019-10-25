@@ -63,63 +63,7 @@ class PlayerTest {
         });
     }
 
-    @Test
-    void gainHealthOnConsumingHealthPotion() {
-        //assuming a health potion always increases current hp by 20
-        Player testPlayer = new Player("Johnny");
-        generateFullInventory(testPlayer);
-        Bawser bawser = new Bawser();
-        bawser.attack(testPlayer, bawser);
-        testPlayer.useHealthPotion();
-        assertEquals(100, testPlayer.getHealth());
-    }
 
-    @Test
-    void useHealthPotionEvenIfItDoesntExistInInventory(){
-        Player testPlayer = new Player("Here's Johnny");
-        Weapon weapon1 = new Weapon();
-        Weapon weapon2 = new Weapon();
-
-        testPlayer.pickUpLoot(weapon1);
-        testPlayer.pickUpLoot(weapon2);
-        Bawser bawser = new Bawser();
-        bawser.attack(testPlayer, bawser);
-
-        testPlayer.useHealthPotion();
-
-        assertEquals(80, testPlayer.getHealth());
-
-    }
-
-    @Test
-    void healthPotionDoesNotExceedMaxHealth () {
-        Player player = new Player("Hodor");
-        generateFullInventory(player);
-        player.setHealth(85);
-        player.useHealthPotion();
-        assertEquals(100, player.getHealth());
-
-    }
-
-    @Test
-    void healthPotionDoesNotAffectMaxHealth () {
-        // assuming a health potion always increases current hp by 20
-        Player testPlayer = new Player("Johnny");
-        generateFullInventory(testPlayer);
-        testPlayer.useHealthPotion();
-        assertEquals(100, testPlayer.getMaxHealth());
-    }
-
-    @Test
-    void useHealthPotionOnlyUsesOnePotion () {
-        Player testPlayer = new Player("Johnny");
-        HealthPotion healthPotion1 = new HealthPotion();
-        HealthPotion healthPotion2 = new HealthPotion();
-        testPlayer.pickUpLoot(healthPotion1);
-        testPlayer.pickUpLoot(healthPotion2);
-        testPlayer.useHealthPotion();
-        assertEquals(1, testPlayer.getInventory().size());
-    }
 
     @Test
     void fullInventorySizeStaysSameOnLoot() {
@@ -175,70 +119,6 @@ class PlayerTest {
 
     }
 
-    @Test
-    void equipWeaponChangesDamage(){
-
-        Player p = new Player("Here's Jonny");
-        Weapon valyrian_steel = new Weapon("Valyrian Steel",33,WeaponType.COMMON);
-
-        p.pickUpLoot(valyrian_steel);
-        p.equipWeapon(valyrian_steel);
-        assertEquals(53,p.getDamage());
-    }
-
-    @Test
-    void unequipWeaponChangesDamage(){
-
-        Player p = new Player("Here's Jonny");
-        Weapon valyrian_steel = new Weapon("Valyrian Steel",33,WeaponType.COMMON);
-
-        p.pickUpLoot(valyrian_steel);
-        p.equipWeapon(valyrian_steel);
-        p.unequipWeapon();
-
-        assertEquals(20, p.getDamage());
-    }
-
-    @Test
-    void cannotUnequipWeaponWithFullInventory () {
-        Player hoboChomo = new Player("Chomo");
-        Weapon valyrian_steel = new Weapon("Valyrian Steel",33,WeaponType.COMMON);
-        hoboChomo.pickUpLoot(valyrian_steel);
-        hoboChomo.equipWeapon(valyrian_steel);
-        generateFullInventory(hoboChomo);
-        hoboChomo.unequipWeapon();
-        assertTrue(hoboChomo.getWeaponSlot().contains(valyrian_steel));
-    }
-
-    @Test
-    void changeWeaponFromPreviousWeapon(){
-        Player p = new Player("Here's Jonny");
-        Weapon valyrian_steel = new Weapon("Valyrian Steel",33,WeaponType.COMMON);
-
-        p.pickUpLoot(valyrian_steel);
-        p.equipWeapon(valyrian_steel);
-
-        Weapon justASwerd = new Weapon("KewlSword",55,WeaponType.RARE);
-        p.pickUpLoot(justASwerd);
-        p.equipWeapon(justASwerd);
-
-        assertEquals(77,p.getDamage());
-
-    }
-
-    @Test
-    void checkDamageIsCorrectWhenPlayerAttacks(){
-        Player p = new Player("Here's Jonny");
-        Weapon valyrian_steel = new Weapon("Valyrian Steel",33,WeaponType.COMMON);
-
-        p.pickUpLoot(valyrian_steel);
-        p.equipWeapon(valyrian_steel);
-
-
-        Bawser bawser = new Bawser();
-        p.attack(bawser,p);
-        assertEquals(47,bawser.getHealth());
-    }
 
     @Test
     void attackIfInRangeX() {
