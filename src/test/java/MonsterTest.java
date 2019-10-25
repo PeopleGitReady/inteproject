@@ -9,16 +9,16 @@ class MonsterTest {
     Map map = new Map(0, 0, 100, 100);
 
     // Test klass för drops av item
-/*
-    @Test
+
+  /*  @Test
     void checkIfItemIsDropped() {
         Goomba groovyGoomba = new Goomba();
         assertTrue(groovyGoomba.getIsDead());
         // Kolla platsen Goomba dog på
         // Droppa item där
-    }
+    }*/
 
- */
+
 
     @Test
     void healthDecreasesAfterAttack(){
