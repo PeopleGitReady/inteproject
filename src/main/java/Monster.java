@@ -1,4 +1,3 @@
-import java.awt.*;
 
 public abstract class Monster extends Character {
 
@@ -26,7 +25,6 @@ public abstract class Monster extends Character {
         if (getHealth() <= 0) {
             setIsDead(true);
             System.out.println("RIP");
-            // generateDrop(getPoint());
         }
     }
 

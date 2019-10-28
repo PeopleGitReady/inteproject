@@ -47,7 +47,6 @@ class PlayerTest {
         assertEquals(point, player.getLocation());
     }
 
-
     @Test
     void healthDecreasesAfterAttack(){
         Bawser bawser = new Bawser();
@@ -62,8 +61,6 @@ class PlayerTest {
             Player testCh = new Player(null);
         });
     }
-
-
 
     @Test
     void fullInventorySizeStaysSameOnLoot() {
@@ -175,4 +172,5 @@ class PlayerTest {
         player.pickUpLoot(weapon5);
 
     }
+
 }

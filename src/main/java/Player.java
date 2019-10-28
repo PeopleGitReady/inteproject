@@ -6,10 +6,10 @@ public class Player extends Character {
 
     private int xp = 0;
     private int maxHealth = 100;
+    private int armorValue;
     private ArrayList<Item> inventory = new ArrayList<Item>();
     private ArrayList<Weapon> weaponSlot= new ArrayList<>();
     private HashSet<Armor> armorSlots = new HashSet<>();
-    private int armorValue;
 
     public Player(String name){
         super(name, 100, 20, 1);
