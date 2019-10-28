@@ -7,7 +7,7 @@ public class Map extends Rectangle {
     }
 
     public void moveCharacter(Character c) {
-        if (super.contains(c)) {
+        if (super.contains(c) && !c.getIsDead()) {
             switch (c.getDirection()) {
                 case UP:
                     moveY(c, 1);
