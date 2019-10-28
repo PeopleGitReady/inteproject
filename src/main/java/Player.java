@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Player extends Character {
 
@@ -7,6 +8,8 @@ public class Player extends Character {
     private int maxHealth = 100;
     private ArrayList<Item> inventory = new ArrayList<Item>();
     private ArrayList<Weapon> weaponSlot= new ArrayList<>();
+    private HashSet<Armor> armorSlots = new HashSet<>();
+    private int armorValue;
 
     public Player(String name){
         super(name, 100, 20, 1);
@@ -25,16 +28,6 @@ public class Player extends Character {
     public void setXp (int xp) { this.xp = xp; }
 
     public void setMaxHealth(int maxHealth) { this.maxHealth = maxHealth; }
-
-    //samma metod fiins på map klassen, vi kan kanske ta bort den
-    public void moveX(int i) {
-        if (! getIsDead())
-            super.setLocation(super.getX() + i, super.getY());
-    }
-    public void moveY(int i) {
-        if (! getIsDead())
-            super.setLocation(super.getX() , super.getY() + i);
-    }
 
     public void pickUpLoot(Item item) {
         if(inventory.size() < 10) {
@@ -94,22 +87,23 @@ public class Player extends Character {
         if(inventory.contains(weapon)){
 
             if(!weaponSlot.isEmpty()){
-
                 Weapon tempWeapon = weaponSlot.get(0);
                 inventory.add(tempWeapon);
                 weaponSlot.clear();
                 setDamage(20);
                 weaponSlot.add(weapon);
-
                 setDamage(getDamage() + weapon.getAttackBonus());
                 inventory.remove(weapon);
-
             } else {
                 weaponSlot.add(weapon);
                 setDamage(getDamage() + weapon.getAttackBonus());
                 inventory.remove(weapon);
             }
         }
+    }
+
+    public int getArmor(){
+        return armorValue;
     }
 
     public void unequipWeapon(){
@@ -123,4 +117,23 @@ public class Player extends Character {
             System.out.println("Your inventory is full!");
         }
     }
+
+    public void equipArmor(Armor armor){
+
+        if(armorSlots.contains(armor.getArmorType())){
+
+        }
+
+        if(inventory.contains(armor)){
+            armorSlots.add(armor);
+
+        }
+
+
+
+    }
+
+
+
+
 }

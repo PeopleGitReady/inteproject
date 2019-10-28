@@ -69,35 +69,10 @@ public abstract class Character extends Point {
         this.direction = direction;
     }
 
-    public abstract void moveX(int i);
-    public abstract void moveY(int i);
-
-    //calculate health
-
-    /*
-    public void attack(Character c, Character attacker){
-        if (c instanceof Player) {
-            Player p = (Player) c;
-            p.takeDamage(damage);
-        }
-
-        if (c instanceof Monster) {
-            Monster m = (Monster) c;
-            Player a = (Player) attacker;
-            m.takeDamage(damage);
-            if (m.getIsDead()) {
-                a.gainXp(m);
-            }
-        }
-    }
-
-     */
-
     public void attack(Character c, Character attacker){
         if (c instanceof Player) {
             Player p = (Player) c;
             Monster m = (Monster) attacker;
-            // Kan förenklas med en metod som direkt kollar så att skillnaden i y eller x är 1
             if(Math.abs(p.getX() - m.getX())  <= 1 && Math.abs(p.getY() - m.getY())  <= 1) {
                 p.takeDamage(damage);
             }

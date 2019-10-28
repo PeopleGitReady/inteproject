@@ -1,8 +1,8 @@
 public enum WeaponType {
 
-    COMMON(0, "common"),
+    COMMON(0, "COMMON"),
     RARE(2, "RARE"),
-    EPIC(4, "epic");
+    EPIC(4, "EPIC");
 
     private final int ADDED_DAMAGE_VALUE;
     private final String RARITY;
