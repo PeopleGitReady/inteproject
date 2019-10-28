@@ -8,7 +8,6 @@ class ConsumableTest {
 
     @Test
     void gainHealthOnConsumingHealthPotion() {
-        //assuming a health potion always increases current hp by 20
         Player testPlayer = new Player("Johnny");
         generateFullInventory(testPlayer);
         Bawser bawser = new Bawser();
@@ -22,16 +21,12 @@ class ConsumableTest {
         Player testPlayer = new Player("Here's Johnny");
         Weapon weapon1 = new Weapon();
         Weapon weapon2 = new Weapon();
-
         testPlayer.pickUpLoot(weapon1);
         testPlayer.pickUpLoot(weapon2);
         Bawser bawser = new Bawser();
         bawser.attack(testPlayer, bawser);
-
         testPlayer.useHealthPotion();
-
         assertEquals(80, testPlayer.getHealth());
-
     }
 
     @Test
@@ -46,7 +41,6 @@ class ConsumableTest {
 
     @Test
     void healthPotionDoesNotAffectMaxHealth () {
-        // assuming a health potion always increases current hp by 20
         Player testPlayer = new Player("Johnny");
         generateFullInventory(testPlayer);
         testPlayer.useHealthPotion();
@@ -65,19 +59,16 @@ class ConsumableTest {
     }
 
     private void generateFullInventory (Player player) {
-
         HealthPotion healthPotion1 = new HealthPotion();
         HealthPotion healthPotion2 = new HealthPotion();
         HealthPotion healthPotion3 = new HealthPotion();
         HealthPotion healthPotion4 = new HealthPotion();
         HealthPotion healthPotion5 = new HealthPotion();
-
         Weapon weapon1 = new Weapon();
         Weapon weapon2 = new Weapon();
         Weapon weapon3 = new Weapon();
         Weapon weapon4 = new Weapon();
         Weapon weapon5 = new Weapon();
-
         player.pickUpLoot(healthPotion1);
         player.pickUpLoot(healthPotion2);
         player.pickUpLoot(healthPotion3);
@@ -88,7 +79,6 @@ class ConsumableTest {
         player.pickUpLoot(weapon3);
         player.pickUpLoot(weapon4);
         player.pickUpLoot(weapon5);
-
     }
 
 }

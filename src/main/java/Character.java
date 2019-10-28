@@ -25,7 +25,6 @@ public abstract class Character extends Point {
         }
         if(name.matches(".*\\d.*")){
             throw new IllegalArgumentException("Name cannot be Number!");
-
         }
     }
 

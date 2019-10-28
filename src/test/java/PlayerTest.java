@@ -67,7 +67,6 @@ class PlayerTest {
 
     @Test
     void fullInventorySizeStaysSameOnLoot() {
-        // Player tries to pick up a new item with an already full inventory, size of inventory should stay unchanged.
         Player testPlayer = new Player("Mike");
         generateFullInventory(testPlayer);
         Weapon droppedWeapon = new Weapon();
@@ -77,7 +76,6 @@ class PlayerTest {
 
     @Test
     void fullInventoryDoesNotContainNewLoot() {
-        // Player tries to pick up a new item with an already full inventory, inventory should not contain this item.
         Player testPlayer = new Player("Mike");
         generateFullInventory(testPlayer);
         Weapon droppedWeapon = new Weapon();
@@ -115,19 +113,11 @@ class PlayerTest {
     }
 
     @Test
-    void equipNonWeaponItem(){
-
-    }
-
-
-    @Test
     void attackIfInRangeX() {
         Player mo = new Player("Mo");
         mo.setLocation(50, 100);
-
         Bawser bobo = new Bawser();
         bobo.setLocation(51, 100);
-
         mo.attack(bobo, mo);
         assertEquals(80, bobo.getHealth());
     }
@@ -136,10 +126,8 @@ class PlayerTest {
     void attackIfInRangeY() {
         Player mo = new Player("Mo");
         mo.setLocation(50, 50);
-
         Bawser bobo = new Bawser();
         bobo.setLocation(50, 51);
-
         mo.attack(bobo, mo);
         assertEquals(80, bobo.getHealth());
     }
@@ -148,10 +136,8 @@ class PlayerTest {
     void attackOutOfRangeX() {
         Player mobo = new Player("Mo");
         mobo.setLocation(50, 100);
-
         Bawser baws = new Bawser();
         baws.setLocation(55, 100);
-
         mobo.attack(baws, mobo);
         assertEquals(100, baws.getHealth());
     }
@@ -160,28 +146,23 @@ class PlayerTest {
     void attackOutOfRangeY() {
         Player mobo = new Player("Mo");
         mobo.setLocation(50, 50);
-
         Bawser baws = new Bawser();
         baws.setLocation(50, 52);
-
         mobo.attack(baws, mobo);
         assertEquals(100, baws.getHealth());
     }
 
     private void generateFullInventory (Player player) {
-
         HealthPotion healthPotion1 = new HealthPotion();
         HealthPotion healthPotion2 = new HealthPotion();
         HealthPotion healthPotion3 = new HealthPotion();
         HealthPotion healthPotion4 = new HealthPotion();
         HealthPotion healthPotion5 = new HealthPotion();
-
         Weapon weapon1 = new Weapon();
         Weapon weapon2 = new Weapon();
         Weapon weapon3 = new Weapon();
         Weapon weapon4 = new Weapon();
         Weapon weapon5 = new Weapon();
-
         player.pickUpLoot(healthPotion1);
         player.pickUpLoot(healthPotion2);
         player.pickUpLoot(healthPotion3);
