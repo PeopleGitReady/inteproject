@@ -12,8 +12,6 @@ public abstract class Monster extends Character {
         return xpGiven * getLevel();
     }
 
-    public boolean getInCombat () { return inCombat; }
-
     public void attack(Character c) {
         if (c instanceof Player) {
             Player p = (Player) c;
