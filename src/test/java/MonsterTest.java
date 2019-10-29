@@ -1,21 +1,9 @@
 import org.junit.jupiter.api.Test;
-
-import java.awt.*;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class MonsterTest {
 
     Map map = new Map(0, 0, 100, 100);
-
-
-  /*  @Test
-    void checkIfItemIsDropped() {
-        Goomba groovyGoomba = new Goomba();
-        assertTrue(groovyGoomba.getIsDead());
-        // Kolla platsen Goomba dog på
-        // Droppa item där
-    }*/
 
     @Test
     void healthDecreasesAfterAttack(){
@@ -42,7 +30,7 @@ class MonsterTest {
         Goomba goomba = new Goomba();
         goomba.setLocation(52, 50);
         Player mario = new Player("Mario");
-        mario.setLocation(53, 52);
+        mario.setLocation(53, 51);
         goomba.attack(mario, goomba);
         assertEquals(95, mario.getHealth());
     }

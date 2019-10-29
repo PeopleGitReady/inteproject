@@ -58,25 +58,9 @@ class WeaponTest {
     }
 
     private void generateFullInventory (Player player) {
-        HealthPotion healthPotion1 = new HealthPotion();
-        HealthPotion healthPotion2 = new HealthPotion();
-        HealthPotion healthPotion3 = new HealthPotion();
-        HealthPotion healthPotion4 = new HealthPotion();
-        HealthPotion healthPotion5 = new HealthPotion();
-        Weapon weapon1 = new Weapon();
-        Weapon weapon2 = new Weapon();
-        Weapon weapon3 = new Weapon();
-        Weapon weapon4 = new Weapon();
-        Weapon weapon5 = new Weapon();
-        player.pickUpLoot(healthPotion1);
-        player.pickUpLoot(healthPotion2);
-        player.pickUpLoot(healthPotion3);
-        player.pickUpLoot(healthPotion4);
-        player.pickUpLoot(healthPotion5);
-        player.pickUpLoot(weapon1);
-        player.pickUpLoot(weapon2);
-        player.pickUpLoot(weapon3);
-        player.pickUpLoot(weapon4);
-        player.pickUpLoot(weapon5);
+        for (int i = 0; i < 5; i++) {
+            player.pickUpLoot(new HealthPotion());
+            player.pickUpLoot(new Weapon());
+        }
     }
 }

@@ -54,7 +54,7 @@ class PlayerTest {
     }
 
     @Test
-    void nameNull(){
+    void checkIfNameIsNull(){
         assertThrows(NullPointerException.class, () -> {
             Player testCh = new Player(null);
         });
@@ -79,7 +79,7 @@ class PlayerTest {
     }
 
     @Test
-    void monsterDiesAfterAttack() {
+    void playerDiesAfterAttack() {
         Bawser bawser = new Bawser();
         Player mario = new Player("Mario");
         mario.setHealth(20);
@@ -88,21 +88,21 @@ class PlayerTest {
     }
 
     @Test
-    void nameContainsNumber() {
+    void checkIfNameContainsNumber() {
         assertThrows(IllegalArgumentException.class, () -> {
             Player testCh = new Player("22.3");
         });
     }
 
     @Test
-    void nameEmpty(){
+    void checkIfNameIsEmpty(){
         assertThrows(IllegalArgumentException.class, () -> {
             Player testCh = new Player("     ");
         });
     }
 
     @Test
-    void nameString(){
+    void checkIfNameIsString(){
         Player testCh = new Player("SavageB");
         assertEquals("SavageB",testCh.getName());
     }
@@ -148,27 +148,9 @@ class PlayerTest {
     }
 
     private void generateFullInventory (Player player) {
-        HealthPotion healthPotion1 = new HealthPotion();
-        HealthPotion healthPotion2 = new HealthPotion();
-        HealthPotion healthPotion3 = new HealthPotion();
-        HealthPotion healthPotion4 = new HealthPotion();
-        HealthPotion healthPotion5 = new HealthPotion();
-        Weapon weapon1 = new Weapon();
-        Weapon weapon2 = new Weapon();
-        Weapon weapon3 = new Weapon();
-        Weapon weapon4 = new Weapon();
-        Weapon weapon5 = new Weapon();
-        player.pickUpLoot(healthPotion1);
-        player.pickUpLoot(healthPotion2);
-        player.pickUpLoot(healthPotion3);
-        player.pickUpLoot(healthPotion4);
-        player.pickUpLoot(healthPotion5);
-        player.pickUpLoot(weapon1);
-        player.pickUpLoot(weapon2);
-        player.pickUpLoot(weapon3);
-        player.pickUpLoot(weapon4);
-        player.pickUpLoot(weapon5);
-
+        for (int i = 0; i < 5; i++) {
+            player.pickUpLoot(new HealthPotion());
+            player.pickUpLoot(new Weapon());
+        }
     }
-
 }

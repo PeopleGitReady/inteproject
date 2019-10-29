@@ -8,14 +8,6 @@ public abstract class Monster extends Character {
         this.xpGiven = xpGiven;
     }
 
-    public void moveX(int i) {
-        super.setLocation(super.getX() + i, super.getY());
-    }
-
-    public void moveY(int i) {
-        super.setLocation(super.getX() , super.getY() + i);
-    }
-
     public int calculateXp () {
         return xpGiven * getLevel();
     }
