@@ -1,11 +1,10 @@
 import org.junit.jupiter.api.Test;
-
 import java.util.concurrent.TimeUnit;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class GoombatTest {
 
+/*
     Map map = new Map(0, 0, 100, 100);
 
     @Test
@@ -62,5 +61,6 @@ class GoombatTest {
         map.moveCharacter(mo);
         //assertTrue(bobo.getInCombat());
     }
+*/
 
 }
