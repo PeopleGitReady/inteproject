@@ -1,10 +1,13 @@
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Map extends Rectangle {
 
     public Map(int x, int y, int width, int height) {
         super(x, y, width, height);
     }
+
+    private ArrayList<Monster> monsters = new ArrayList<>();
 
     public void moveCharacter(Character c) {
         if (super.contains(c) && !c.getIsDead()) {

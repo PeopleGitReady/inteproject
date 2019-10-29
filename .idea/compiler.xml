@@ -6,8 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="inteproject" />
         <module name="intetest" />
+        <module name="inteClone" />
+        <module name="inteproject" />
       </profile>
     </annotationProcessing>
   </component>
