@@ -68,7 +68,9 @@ public abstract class Character extends Point {
         this.direction = direction;
     }
 
-    public void attack(Character c, Character attacker){
+    public abstract void attack(Character c);
+
+/*    public void attack(Character c, Character attacker){
         if (c instanceof Player) {
             Player p = (Player) c;
             Monster m = (Monster) attacker;
@@ -87,6 +89,6 @@ public abstract class Character extends Point {
                 }
             }
         }
-    }
+    }*/
 
 }

@@ -1,7 +1,7 @@
-
 public abstract class Monster extends Character {
 
-    public int xpGiven;
+    private int xpGiven;
+    private boolean inCombat;
 
     public Monster(String name, int health, int attack, int level, int xpGiven) {
         super(name, health, attack, level);
@@ -10,6 +10,17 @@ public abstract class Monster extends Character {
 
     public int calculateXp () {
         return xpGiven * getLevel();
+    }
+
+    public boolean getInCombat () { return inCombat; }
+
+    public void attack(Character c) {
+        if (c instanceof Player) {
+            Player p = (Player) c;
+            if(Math.abs(p.getX() - getX())  <= 1 && Math.abs(p.getY() - getY())  <= 1) {
+                p.takeDamage(getDamage());
+            }
+        }
     }
 
     public void takeDamage (int damage) {

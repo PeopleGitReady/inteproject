@@ -10,7 +10,7 @@ class PlayerTest {
     void gainXPOnSlayingMob () {
         Player player = new Player("Grogg");
         Goomba gombi = new Goomba();
-        player.attack(gombi, player);
+        player.attack(gombi);
         assertEquals(10, player.getXp());
     }
 
@@ -20,7 +20,7 @@ class PlayerTest {
         Goomba goomblord = new Goomba();
         player.setXp(95);
         goomblord.setHealth(5);
-        player.attack(goomblord, player);
+        player.attack(goomblord);
         assertEquals(2, player.getLevel());
     }
 
@@ -30,7 +30,7 @@ class PlayerTest {
         Goomba gomblord = new Goomba();
         player.setXp(95);
         gomblord.setHealth(5);
-        player.attack(gomblord, player);
+        player.attack(gomblord);
         assertEquals(150, player.getMaxHealth());
     }
 
@@ -40,7 +40,7 @@ class PlayerTest {
         Point point = new Point(0, 0);
         player.setHealth(4);
         Goomba gogo = new Goomba();
-        gogo.attack(player, gogo);;
+        gogo.attack(player);;
         map.moveCharacter(player);
         assertEquals(point, player.getLocation());
     }
@@ -49,7 +49,7 @@ class PlayerTest {
     void healthDecreasesAfterAttack(){
         Bawser bawser = new Bawser();
         Player mario = new Player("Mario");
-        bawser.attack(mario, bawser);
+        bawser.attack(mario);
         assertEquals(80, mario.getHealth());
     }
 
@@ -83,7 +83,7 @@ class PlayerTest {
         Bawser bawser = new Bawser();
         Player mario = new Player("Mario");
         mario.setHealth(20);
-        bawser.attack(mario, bawser);
+        bawser.attack(mario);
         assertTrue(mario.getIsDead());
     }
 
@@ -113,7 +113,7 @@ class PlayerTest {
         mo.setLocation(50, 100);
         Bawser bobo = new Bawser();
         bobo.setLocation(51, 100);
-        mo.attack(bobo, mo);
+        mo.attack(bobo);
         assertEquals(80, bobo.getHealth());
     }
 
@@ -123,7 +123,7 @@ class PlayerTest {
         mo.setLocation(50, 50);
         Bawser bobo = new Bawser();
         bobo.setLocation(50, 51);
-        mo.attack(bobo, mo);
+        mo.attack(bobo);
         assertEquals(80, bobo.getHealth());
     }
 
@@ -133,7 +133,7 @@ class PlayerTest {
         mobo.setLocation(50, 100);
         Bawser baws = new Bawser();
         baws.setLocation(55, 100);
-        mobo.attack(baws, mobo);
+        mobo.attack(baws);
         assertEquals(100, baws.getHealth());
     }
 
@@ -143,7 +143,7 @@ class PlayerTest {
         mobo.setLocation(50, 50);
         Bawser baws = new Bawser();
         baws.setLocation(50, 52);
-        mobo.attack(baws, mobo);
+        mobo.attack(baws);
         assertEquals(100, baws.getHealth());
     }
 

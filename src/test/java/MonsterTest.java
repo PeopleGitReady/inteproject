@@ -11,7 +11,7 @@ class MonsterTest {
         bawser.setLocation(50, 50);
         Player mario = new Player("Mario");
         mario.setLocation(51, 50);
-        mario.attack(bawser, mario);
+        mario.attack(bawser);
         assertEquals(80, bawser.getHealth());
     }
 
@@ -21,7 +21,7 @@ class MonsterTest {
         goomba.setLocation(51, 50);
         Player mario = new Player("Mario");
         mario.setLocation(51, 51);
-        mario.attack(goomba, mario);
+        mario.attack(goomba);
         assertTrue(goomba.getIsDead());
     }
 
@@ -31,7 +31,7 @@ class MonsterTest {
         goomba.setLocation(52, 50);
         Player mario = new Player("Mario");
         mario.setLocation(53, 51);
-        goomba.attack(mario, goomba);
+        goomba.attack(mario);
         assertEquals(95, mario.getHealth());
     }
 
@@ -47,7 +47,7 @@ class MonsterTest {
         mo.setLocation(50, 100);
         Bawser baws = new Bawser();
         baws.setLocation(51, 100);
-        mo.attack(mo, baws);
+        baws.attack(mo);
         assertEquals(80, mo.getHealth());
     }
 
@@ -57,7 +57,7 @@ class MonsterTest {
         mo.setLocation(50, 100);
         Bawser baws = new Bawser();
         baws.setLocation(50, 99);
-        mo.attack(mo, baws);
+        baws.attack(mo);
         assertEquals(80, mo.getHealth());
     }
 
@@ -67,7 +67,7 @@ class MonsterTest {
         mo.setLocation(50, 100);
         Bawser baws = new Bawser();
         baws.setLocation(55, 100);
-        mo.attack(baws, mo);
+        mo.attack(baws);
         assertEquals(100, mo.getHealth());
     }
 
@@ -77,7 +77,7 @@ class MonsterTest {
         mo.setLocation(50, 50);
         Bawser baws = new Bawser();
         baws.setLocation(55, 52);
-        mo.attack(baws, mo);
+        mo.attack(baws);
         assertEquals(100, mo.getHealth());
     }
 }

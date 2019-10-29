@@ -13,7 +13,7 @@ class GoombatTest {
         Goomba goon = new Goomba();
         Player p = new Player("dawg");
         goon.setHealth(15);
-        p.attack(goon, p);
+        p.attack(goon);
         try {
             TimeUnit.SECONDS.sleep(20);
         } catch (InterruptedException e) {
@@ -27,9 +27,9 @@ class GoombatTest {
         Goomba goon = new Goomba();
         Player p = new Player("dawg");
         goon.setHealth(15);
-        p.attack(goon, p);
+        p.attack(goon);
         try {
-            TimeUnit.SECONDS.sleep(30);
+            TimeUnit.SECONDS.sleep(10);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -42,12 +42,12 @@ class GoombatTest {
         mo.setLocation(50, 100);
         Bawser bobo = new Bawser();
         bobo.setLocation(51, 100);
-        mo.attack(bobo, mo);
+        mo.attack(bobo);
         map.moveCharacter(mo);
         map.moveCharacter(mo);
         map.moveCharacter(mo);
         map.moveCharacter(mo);
-       // assertFalse(mo.getInCombat());
+        assertFalse(bobo.getInCombat());
     }
 
     @Test
@@ -56,13 +56,11 @@ class GoombatTest {
         mo.setLocation(50, 100);
         Bawser bobo = new Bawser();
         bobo.setLocation(51, 100);
-        mo.attack(bobo, mo);
+        mo.attack(bobo);
         map.moveCharacter(mo);
         map.moveCharacter(mo);
         map.moveCharacter(mo);
-        //assertTrue(mo.getInCombat());
+        assertTrue(bobo.getInCombat());
     }
-
-
 
 }

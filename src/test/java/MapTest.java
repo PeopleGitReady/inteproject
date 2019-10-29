@@ -5,6 +5,7 @@ import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MapTest {
+
     Map map = new Map(0, 0, 100, 100);
 
     @Test
@@ -100,6 +101,4 @@ class MapTest {
 
     // check drops
     // check terrain
-
-
 }

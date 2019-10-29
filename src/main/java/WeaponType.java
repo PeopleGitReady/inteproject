@@ -16,7 +16,4 @@ public enum WeaponType {
         return ADDED_DAMAGE_VALUE;
     }
 
-
-
-
 }

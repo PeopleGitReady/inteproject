@@ -4,16 +4,14 @@ public class Player extends Character {
 
     private int xp = 0;
     private int maxHealth = 100;
-    private ArrayList<Item> inventory = new ArrayList<Item>();
+    private ArrayList<Item> inventory = new ArrayList<>();
     private ArrayList<Weapon> weaponSlot= new ArrayList<>();
 
     public Player(String name){
         super(name, 100, 20, 1);
     }
 
-    public ArrayList<Item> getInventory() {
-        return inventory;
-    }
+    public ArrayList<Item> getInventory() { return inventory; }
 
     public ArrayList<Weapon> getWeaponSlot() {
         return weaponSlot;
@@ -40,6 +38,18 @@ public class Player extends Character {
             inventory.add(item);
         } else {
             System.out.print("This inventory is full! ");
+        }
+    }
+
+    public void attack(Character c) {
+        if (c instanceof Monster) {
+            Monster m = (Monster) c;
+            if(Math.abs(m.getX() - getX()) <= 1 && Math.abs(m.getY() - getY()) <= 1) {
+                m.takeDamage(getDamage());
+                if (m.getIsDead()) {
+                    gainXp(m);
+                }
+            }
         }
     }
 
@@ -110,10 +120,6 @@ public class Player extends Character {
         } else {
             System.out.println("Your inventory is full!");
         }
-    }
-
-    public void equipArmor(Armor armor) {
-
     }
 
 }

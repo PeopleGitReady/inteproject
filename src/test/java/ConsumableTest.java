@@ -5,13 +5,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class ConsumableTest {
 
 
-
     @Test
     void gainHealthOnConsumingHealthPotion() {
         Player testPlayer = new Player("Johnny");
         generateFullInventory(testPlayer);
         Bawser bawser = new Bawser();
-        bawser.attack(testPlayer, bawser);
+        bawser.attack(testPlayer);
         testPlayer.useHealthPotion();
         assertEquals(100, testPlayer.getHealth());
     }
@@ -24,7 +23,7 @@ class ConsumableTest {
         testPlayer.pickUpLoot(weapon1);
         testPlayer.pickUpLoot(weapon2);
         Bawser bawser = new Bawser();
-        bawser.attack(testPlayer, bawser);
+        bawser.attack(testPlayer);
         testPlayer.useHealthPotion();
         assertEquals(80, testPlayer.getHealth());
     }

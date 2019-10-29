@@ -53,7 +53,7 @@ class WeaponTest {
         p.pickUpLoot(valyrian_steel);
         p.equipWeapon(valyrian_steel);
         Bawser bawser = new Bawser();
-        p.attack(bawser,p);
+        p.attack(bawser);
         assertEquals(47,bawser.getHealth());
     }
 
