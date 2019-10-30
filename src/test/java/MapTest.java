@@ -14,6 +14,7 @@ class MapTest {
         map.add(p);
         assertTrue(map.contains(p));
     }
+
     @Test
     void moveRight() {
         Player p = new Player("Playah");
@@ -95,10 +96,4 @@ class MapTest {
         map.moveCharacter(p);
         assertEquals(expectedLocation, p.getLocation());
     }
-
-
-
-
-    // check drops
-    // check terrain
 }

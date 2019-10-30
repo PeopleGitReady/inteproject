@@ -153,4 +153,30 @@ class PlayerTest {
             player.pickUpLoot(new Weapon());
         }
     }
+
+    @Test
+    void testingPlayerMovementInMap() {
+        Player p = new Player("Playah");
+        p.setLocation(0, 0);
+
+        int counter =0;
+        for (int i = 0; i < 500; i++) {
+
+            map.moveCharacter(p);
+            if (p.getLocation().getX() == 99 && p.getLocation().getY() ==0) {
+                p.setDirection(Direction.DOWN);
+            } else if(p.getLocation().getY() == 99 &&p.getLocation().getX() == 99 ){
+                p.setDirection(Direction.LEFT);
+            } else if(p.getLocation().getY() == 99 &&p.getLocation().getX() == 0){
+                p.setDirection(Direction.UP);
+            } else if(p.getLocation().getY() == 0 &&p.getLocation().getX() == 0){
+                p.setDirection(Direction.RIGHT);
+
+                counter++;
+            }
+
+            assertEquals(0,counter);
+
+        }
+    }
 }
