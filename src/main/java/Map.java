@@ -7,16 +7,14 @@ public class Map extends Rectangle {
         super(x, y, width, height);
     }
 
-    private ArrayList<Monster> monsters = new ArrayList<>();
-
     public void moveCharacter(Character c) {
         if (super.contains(c) && !c.getIsDead()) {
             switch (c.getDirection()) {
                 case UP:
-                    moveY(c, 1);
+                    moveY(c, -1);
                     break;
                 case DOWN:
-                    moveY(c, -1);
+                    moveY(c, 1);
                     break;
                 case RIGHT:
                     moveX(c, 1);
@@ -27,7 +25,6 @@ public class Map extends Rectangle {
             }
         }
     }
-
 
     private void moveY(Character c, int i) {
         Point newPos = new Point((int) c.getX(), (int) c.getY() + i);

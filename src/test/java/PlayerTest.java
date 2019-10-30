@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
+
 import java.awt.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
@@ -7,7 +9,7 @@ class PlayerTest {
     Map map = new Map(0, 0, 100, 100);
 
     @Test
-    void gainXPOnSlayingMob () {
+    void gainXPOnSlayingMob() {
         Player player = new Player("Grogg");
         Goomba gombi = new Goomba();
         player.attack(gombi);
@@ -15,7 +17,7 @@ class PlayerTest {
     }
 
     @Test
-    void levelUpOnGainingRequiredXP () {
+    void levelUpOnGainingRequiredXP() {
         Player player = new Player("Babushka");
         Goomba goomblord = new Goomba();
         player.setXp(95);
@@ -25,7 +27,7 @@ class PlayerTest {
     }
 
     @Test
-    void maxHealthIncreasesOnLevelUp () {
+    void maxHealthIncreasesOnLevelUp() {
         Player player = new Player("Grrr");
         Goomba gomblord = new Goomba();
         player.setXp(95);
@@ -35,18 +37,19 @@ class PlayerTest {
     }
 
     @Test
-    void playerTriesToMoveWhenDead () {
+    void playerTriesToMoveWhenDead() {
         Player player = new Player("JoeSchmoe");
         Point point = new Point(0, 0);
         player.setHealth(4);
         Goomba gogo = new Goomba();
-        gogo.attack(player);;
+        gogo.attack(player);
+        ;
         map.moveCharacter(player);
         assertEquals(point, player.getLocation());
     }
 
     @Test
-    void healthDecreasesAfterAttack(){
+    void healthDecreasesAfterAttack() {
         Bawser bawser = new Bawser();
         Player mario = new Player("Mario");
         bawser.attack(mario);
@@ -54,7 +57,7 @@ class PlayerTest {
     }
 
     @Test
-    void checkIfNameIsNull(){
+    void checkIfNameIsNull() {
         assertThrows(NullPointerException.class, () -> {
             Player testCh = new Player(null);
         });
@@ -95,16 +98,16 @@ class PlayerTest {
     }
 
     @Test
-    void checkIfNameIsEmpty(){
+    void checkIfNameIsEmpty() {
         assertThrows(IllegalArgumentException.class, () -> {
             Player testCh = new Player("     ");
         });
     }
 
     @Test
-    void checkIfNameIsString(){
+    void checkIfNameIsString() {
         Player testCh = new Player("SavageB");
-        assertEquals("SavageB",testCh.getName());
+        assertEquals("SavageB", testCh.getName());
     }
 
     @Test
@@ -147,7 +150,7 @@ class PlayerTest {
         assertEquals(100, baws.getHealth());
     }
 
-    private void generateFullInventory (Player player) {
+    private void generateFullInventory(Player player) {
         for (int i = 0; i < 5; i++) {
             player.pickUpLoot(new HealthPotion());
             player.pickUpLoot(new Weapon());
@@ -159,24 +162,21 @@ class PlayerTest {
         Player p = new Player("Playah");
         p.setLocation(0, 0);
 
-        int counter =0;
-        for (int i = 0; i < 500; i++) {
+        int counter = 0;
+        for (int i = 0; i < 396000; i++) {
 
             map.moveCharacter(p);
-            if (p.getLocation().getX() == 99 && p.getLocation().getY() ==0) {
+            if (p.getLocation().getX() == 99 && p.getLocation().getY() == 0) {
                 p.setDirection(Direction.DOWN);
-            } else if(p.getLocation().getY() == 99 &&p.getLocation().getX() == 99 ){
+            } else if (p.getLocation().getY() == 99 && p.getLocation().getX() == 99) {
                 p.setDirection(Direction.LEFT);
-            } else if(p.getLocation().getY() == 99 &&p.getLocation().getX() == 0){
+            } else if (p.getLocation().getY() == 99 && p.getLocation().getX() == 0) {
                 p.setDirection(Direction.UP);
-            } else if(p.getLocation().getY() == 0 &&p.getLocation().getX() == 0){
+            } else if (p.getLocation().getY() == 0 && p.getLocation().getX() == 0) {
                 p.setDirection(Direction.RIGHT);
-
                 counter++;
             }
-
-            assertEquals(0,counter);
-
         }
+        assertEquals(1000, counter);
     }
 }
